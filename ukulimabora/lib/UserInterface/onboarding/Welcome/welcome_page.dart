@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:ukulimabora/Shared/Widgets/constants.dart';
+import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/onboarding_button.dart';
+import 'package:ukulimabora/routes/routes.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -107,11 +108,15 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
               ),
               OnboardingButton(
-                buttonAction: () {},
+                buttonAction: () {
+                  Navigator.of(context).pushNamed(registrationRoute);
+                },
                 buttonText: UkulimaBoraCommonText.registerText,
               ),
               OnboardingButton(
-                buttonAction: () {},
+                buttonAction: () {
+                  Navigator.of(context).pushNamed(loginRoute);
+                },
                 buttonText: UkulimaBoraCommonText.loginText,
               )
             ],

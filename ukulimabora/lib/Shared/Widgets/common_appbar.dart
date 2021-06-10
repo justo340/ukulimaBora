@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ukulimabora/Shared/Widgets/constants.dart';
+import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class CommonAppBar extends StatefulWidget {
   @override
