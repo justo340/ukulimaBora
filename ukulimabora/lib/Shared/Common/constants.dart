@@ -5,6 +5,9 @@ class UkulimaBoraCommonText {
   static String loginText = 'Login';
   static String registerText = 'Sign Up';
   static String welcomeText = 'Welcome';
+  static String genericErrorMessage =
+      'An error occured, press the button to retry';
+  static String retryMessage = 'Retry';
 }
 
 class UkulimaBoraCommonColors {

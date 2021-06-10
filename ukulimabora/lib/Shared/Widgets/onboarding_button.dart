@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:ukulimabora/Shared/Widgets/constants.dart';
+import 'package:ukulimabora/Shared/Common/constants.dart';
 
-class OnboardingButton extends StatelessWidget {
+class OnboardingButton extends StatefulWidget {
   const OnboardingButton({
     @required this.buttonText,
     @required this.buttonAction,
   });
 
   final String buttonText;
-  final Function buttonAction;
+  final Function() buttonAction;
 
+  @override
+  _OnboardingButtonState createState() => _OnboardingButtonState();
+}
+
+class _OnboardingButtonState extends State<OnboardingButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,9 +25,9 @@ class OnboardingButton extends StatelessWidget {
           color: UkulimaBoraCommonColors.appGreenColor,
           borderRadius: BorderRadius.circular(12)),
       child: TextButton(
-          onPressed: () => buttonAction,
+          onPressed: widget.buttonAction,
           child: Text(
-            buttonText,
+            widget.buttonText,
             style: TextStyle(
                 color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18),
           )),
