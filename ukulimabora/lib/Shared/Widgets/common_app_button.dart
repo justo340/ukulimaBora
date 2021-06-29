@@ -9,7 +9,7 @@ class CommonAppButton extends StatefulWidget {
       @required this.textColor});
 
   final String buttonText;
-  final dynamic buttonAction;
+  final Function() buttonAction;
   final Color buttonColor;
   final Color textColor;
 
@@ -27,7 +27,7 @@ class _CommonAppButtonState extends State<CommonAppButton> {
       decoration: BoxDecoration(
           color: widget.buttonColor, borderRadius: BorderRadius.circular(12)),
       child: TextButton(
-          onPressed: () => widget.buttonAction,
+          onPressed: widget.buttonAction,
           child: Text(
             widget.buttonText,
             style: TextStyle(color: widget.textColor, fontSize: 18),

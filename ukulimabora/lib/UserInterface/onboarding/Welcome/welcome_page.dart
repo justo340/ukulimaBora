@@ -26,7 +26,7 @@ class _WelcomePageState extends State<WelcomePage> {
           ])),
       child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Column(
+          body: ListView(
             children: <Widget>[
               Container(
                 margin: UkulimaBoraCustomSpaces.normalMarginSpacing,
@@ -97,14 +97,16 @@ class _WelcomePageState extends State<WelcomePage> {
                   ],
                 ),
               ),
-              Container(
-                margin: UkulimaBoraCustomSpaces.bottomMarginSpacing,
-                child: Text(
-                  UkulimaBoraCommonText.welcomeText,
-                  style: TextStyle(
-                      color: UkulimaBoraCommonColors.appblackColor,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
+              Center(
+                child: Container(
+                  margin: UkulimaBoraCustomSpaces.bottomMarginSpacing,
+                  child: Text(
+                    UkulimaBoraCommonText.welcomeText,
+                    style: TextStyle(
+                        color: UkulimaBoraCommonColors.appBlackColor,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
               OnboardingButton(
