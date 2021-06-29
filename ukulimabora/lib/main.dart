@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -6,9 +7,10 @@ import 'package:ukulimabora/routes/routes.dart';
 
 import 'Shared/Common/constants.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
+  await Firebase.initializeApp();
+  await SystemChrome.setPreferredOrientations(
           <DeviceOrientation>[DeviceOrientation.portraitUp])
       .then((_) => runApp(UkulimaBora()));
 }
