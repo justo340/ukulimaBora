@@ -56,7 +56,7 @@ class ErrorPage extends StatelessWidget {
                           height: 10,
                         ),
                         CommonAppButton(
-                          buttonAction: Navigator.of(context).pop,
+                          buttonAction: () => Navigator.of(context).pop,
                           buttonColor: UkulimaBoraCommonColors.appGreenColor,
                           buttonText: UkulimaBoraCommonText.retryMessage,
                           textColor: UkulimaBoraCommonColors.appBackgroudColor,
