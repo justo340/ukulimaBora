@@ -9,34 +9,67 @@ class UkulimaBoraTextFormField extends StatelessWidget {
       @required this.keyboardtype,
       @required this.validator,
       @required this.onsaved,
-      this.maximumLength});
+      @required this.onchanged,
+      this.maximumLength,
+      this.obscuretext,
+      this.icon});
 
   final TextEditingController controller;
   final String hinttext;
   final Color fillcolor;
   final TextInputType keyboardtype;
   final String Function(String) validator;
-  final String Function(String) onsaved;
+  final Function(String) onsaved;
+  final Function(String) onchanged;
   final int maximumLength;
+  final bool obscuretext;
+  final Widget icon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscuretext,
       keyboardType: keyboardtype,
       controller: controller,
       autocorrect: false,
+      autovalidateMode: AutovalidateMode.disabled,
+      enableSuggestions: false,
       validator: validator,
       onSaved: onsaved,
+      onChanged: onchanged,
       maxLength: maximumLength,
       decoration: InputDecoration(
+          prefixIcon: icon,
           hintText: hinttext,
           fillColor: fillcolor,
           filled: true,
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(70.0),
+              ),
+              borderSide: BorderSide(
+                color: UkulimaBoraCommonColors.appBlueColor,
+              )),
+          errorBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(70.0),
+              ),
+              borderSide: BorderSide(
+                color: UkulimaBoraCommonColors.appRedColor,
+              )),
           enabledBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(70.0),
+              ),
               borderSide: BorderSide(
-                  color: UkulimaBoraCommonColors.appGreenColor, width: 2.0)),
+                color: UkulimaBoraCommonColors.appGreenColor,
+              )),
           focusedBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(70.0),
+              ),
               borderSide: BorderSide(
-                  color: UkulimaBoraCommonColors.appBlueColor, width: 2.0))),
+                color: UkulimaBoraCommonColors.appBlueColor,
+              ))),
     );
   }
 }
