@@ -25,7 +25,7 @@ class _CommonAppButtonState extends State<CommonAppButton> {
       margin: UkulimaBoraCustomSpaces.normalMarginSpacing,
       width: 200,
       decoration: BoxDecoration(
-          color: widget.buttonColor, borderRadius: BorderRadius.circular(12)),
+          color: widget.buttonColor, borderRadius: BorderRadius.circular(70)),
       child: TextButton(
           onPressed: widget.buttonAction,
           child: Text(

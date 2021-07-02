@@ -23,7 +23,7 @@ class _OnboardingButtonState extends State<OnboardingButton> {
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: UkulimaBoraCommonColors.appGreenColor,
-          borderRadius: BorderRadius.circular(12)),
+          borderRadius: BorderRadius.circular(70)),
       child: TextButton(
           onPressed: widget.buttonAction,
           child: Text(
