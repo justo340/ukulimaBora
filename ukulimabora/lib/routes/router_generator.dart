@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:ukulimabora/Shared/Widgets/error_page.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Login/login_page.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Registration/registration_page.dart';
+import 'package:ukulimabora/UserInterface/onboarding/Welcome/homepage.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Welcome/welcome_page.dart';
 import 'package:ukulimabora/routes/routes.dart';
 
@@ -10,6 +11,8 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // final dynamic arg = settings.arguments;
     switch (settings.name) {
+      case homeRoute:
+        return MaterialPageRoute<dynamic>(builder: (_) => HomePage());
       case welcomeRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => WelcomePage());
       case loginRoute:
