@@ -10,7 +10,7 @@ import 'Shared/Common/constants.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await SystemChrome.setPreferredOrientations(
+  SystemChrome.setPreferredOrientations(
           <DeviceOrientation>[DeviceOrientation.portraitUp])
       .then((_) => runApp(UkulimaBora()));
 }

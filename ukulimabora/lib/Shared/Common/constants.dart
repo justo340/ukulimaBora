@@ -24,10 +24,11 @@ class UkulimaBoraCommonText {
   static String longPhoneMessage = 'Phone number is too long';
   static String shortLastNameMessage = 'Last name is too short';
   static String shortFirstNameMessage = 'First name is too short';
-  static String invalidPinMessage = 'Entera 4 digit PIN ';
+  static String invalidPinMessage = 'Enter a 4 digit PIN ';
   static String registerhelpText = 'To get access to awesome farming insights';
   static String registerMainText = 'Create Account';
-  static String alreadyAMemberText = '     Already have an Account ';
+  static String loginMainText = 'Sign In';
+  static String alreadyAMemberText = 'Already have an Account ';
 }
 
 class UkulimaBoraCommonColors {
