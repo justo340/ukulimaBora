@@ -29,6 +29,7 @@ class UkulimaBoraCommonText {
   static String registerMainText = 'Create Account';
   static String loginMainText = 'Sign In';
   static String alreadyAMemberText = 'Already have an Account ';
+  static String todayQuestionText = 'What would you like to do today?';
 }
 
 class UkulimaBoraCommonColors {
@@ -41,7 +42,18 @@ class UkulimaBoraCommonColors {
 }
 
 class UkulimaBoraCustomSpaces {
+  static EdgeInsets largerMarginSpacing = const EdgeInsets.all(16);
   static EdgeInsets normalMarginSpacing = const EdgeInsets.all(12);
+  static EdgeInsets smallMarginSpacing = const EdgeInsets.all(8);
   static EdgeInsets bottomMarginSpacing =
       const EdgeInsets.fromLTRB(12, 6, 12, 12);
+}
+
+class UkulimaBoraActivities {
+  static String havest = 'Harvest';
+  static String plant = 'Plant';
+  static String pesticide = 'Apply Pesticide';
+  static String irrigate = 'Irrigate';
+  static String fertilizer = 'Apply fertilizer';
+  static String land = 'Land prep';
 }
