@@ -7,6 +7,7 @@ class CommonAppBar extends StatefulWidget {
 }
 
 class _CommonAppBarState extends State<CommonAppBar> {
+  String title;
   @override
   Widget build(BuildContext context) {
     return AppBar(
