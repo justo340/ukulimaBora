@@ -245,7 +245,10 @@ class RegistrationHeader extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.bottomRight,
               end: Alignment.topLeft,
-              colors: <Color>[Colors.green.shade400, Colors.blueGrey.shade900]),
+              colors: <Color>[
+                UkulimaBoraCommonColors.appLightGreenColor,
+                UkulimaBoraCommonColors.appVeryBlackColor
+              ]),
           borderRadius:
               const BorderRadius.only(bottomRight: Radius.circular(150)),
           boxShadow: <BoxShadow>[

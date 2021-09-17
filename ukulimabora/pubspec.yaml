@@ -16,6 +16,7 @@ dependencies:
   firebase_analytics: ^8.1.2
   cloud_firestore: ^2.2.2
   country_code_picker: ^2.0.2
+  google_maps_flutter: ^2.0.8
 
 dev_dependencies:
   flutter_test:

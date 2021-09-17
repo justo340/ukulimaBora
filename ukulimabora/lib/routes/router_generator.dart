@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ukulimabora/Shared/Widgets/error_page.dart';
+import 'package:ukulimabora/UserInterface/Location/Farm/add_farm_page.dart';
+import 'package:ukulimabora/UserInterface/Location/Map/map_page.dart';
+import 'package:ukulimabora/UserInterface/Profile/profile_page.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Login/login_page.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Registration/registration_page.dart';
-import 'package:ukulimabora/UserInterface/onboarding/Welcome/navigation.dart';
+import 'package:ukulimabora/UserInterface/onboarding/Welcome/bottom_navigation.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Welcome/welcome_page.dart';
 import 'package:ukulimabora/routes/routes.dart';
 
@@ -19,6 +22,12 @@ class RouteGenerator {
         return MaterialPageRoute<dynamic>(builder: (_) => LoginPage());
       case registrationRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => RegistrationPage());
+      case profileRoute:
+        return MaterialPageRoute<dynamic>(builder: (_) => ProfilePage());
+      case addFarmRoute:
+        return MaterialPageRoute<dynamic>(builder: (_) => AddFarmPage());
+      case locationRoute:
+        return MaterialPageRoute<dynamic>(builder: (_) => MapPage());
       default:
         return _errorRoute();
     }

@@ -12,6 +12,8 @@ class UkulimaBoraTextFormField extends StatelessWidget {
       @required this.onchanged,
       this.maximumLength,
       this.obscuretext,
+      this.style,
+      this.hintStyle,
       this.icon});
 
   final TextEditingController controller;
@@ -24,9 +26,12 @@ class UkulimaBoraTextFormField extends StatelessWidget {
   final int maximumLength;
   final bool obscuretext;
   final Widget icon;
+  final TextStyle style;
+  final TextStyle hintStyle;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: style,
       obscureText: obscuretext,
       keyboardType: keyboardtype,
       controller: controller,
@@ -40,6 +45,7 @@ class UkulimaBoraTextFormField extends StatelessWidget {
       decoration: InputDecoration(
           prefixIcon: icon,
           hintText: hinttext,
+          hintStyle: hintStyle,
           fillColor: fillcolor,
           filled: true,
           focusedErrorBorder: OutlineInputBorder(

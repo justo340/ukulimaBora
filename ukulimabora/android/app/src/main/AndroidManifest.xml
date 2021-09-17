@@ -3,6 +3,8 @@
    <application
         android:label="ukulimabora"
         android:icon="@mipmap/ic_launcher">
+         <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value='AIzaSyAWL9n8oto4xec31SYxBfUkWCJmSZcvxXw'/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
