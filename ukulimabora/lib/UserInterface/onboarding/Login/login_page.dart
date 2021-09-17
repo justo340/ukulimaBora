@@ -24,8 +24,8 @@ class _LoginPageState extends State<LoginPage> {
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
                 colors: <Color>[
-                  Colors.green.shade400,
-                  Colors.blueGrey.shade900
+                  UkulimaBoraCommonColors.appLightGreenColor,
+                  UkulimaBoraCommonColors.appVeryBlackColor
                 ]),
           ),
           width: MediaQuery.of(context).size.width,

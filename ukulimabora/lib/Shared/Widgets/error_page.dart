@@ -14,15 +14,17 @@ class ErrorPage extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: <Color>[
-              Colors.green.shade400,
-              Colors.blueGrey.shade600,
-              Colors.blueGrey.shade900
+              UkulimaBoraCommonColors.appLightGreenColor,
+              // Colors.blueGrey.shade600,
+              UkulimaBoraCommonColors.appVeryBlackColor
             ])),
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: Column(
               children: <Widget>[
-                CommonAppBar(),
+                const CommonAppBar(
+                  label: '',
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 1.2,
                   width: MediaQuery.of(context).size.width,

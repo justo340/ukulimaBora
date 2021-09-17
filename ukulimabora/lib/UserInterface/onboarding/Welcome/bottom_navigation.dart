@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
+import 'package:ukulimabora/UserInterface/Notification/notifications.dart';
+import 'package:ukulimabora/UserInterface/Tasks/tasks_page.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Welcome/homepage.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -12,8 +14,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   List<Widget> widgetOptions = <Widget>[
     HomePage(),
-    const Text('notification'),
-    const Text('task')
+    NotificationsPage(),
+    TasksPage(),
   ];
 
   void bottomNavigatorFunction(int index) {
@@ -28,6 +30,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
       resizeToAvoidBottomInset: false,
       body: widgetOptions.elementAt(selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        unselectedIconTheme:
+            IconThemeData(color: UkulimaBoraCommonColors.appVeryBlackColor),
         backgroundColor: UkulimaBoraCommonColors.appGreenColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
