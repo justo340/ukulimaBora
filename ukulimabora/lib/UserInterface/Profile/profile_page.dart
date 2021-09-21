@@ -110,6 +110,8 @@ class PersonalInfoCard extends StatelessWidget {
                 data: '0723243543',
                 icon: Icons.phone,
               ),
+              UkulimaBoraDivider.normaldivider,
+              const ProfileInfoData(data: 'Nairobi', icon: Icons.pin_drop)
             ],
           ),
         ),
@@ -135,7 +137,7 @@ class ProfileInfoData extends StatelessWidget {
         children: <Widget>[
           Icon(
             icon,
-            color: UkulimaBoraCommonColors.appBackgroudColor,
+            color: UkulimaBoraCommonColors.appBackgroudColor.withOpacity(0.4),
             size: 15,
           ),
           const SizedBox(
@@ -183,8 +185,8 @@ class UkulimaBoraInfoCard extends StatelessWidget {
                     ),
                     UkulimaBoraDivider.normaldivider,
                     const ProfileInfoData(
-                      data: '0723243543',
-                      icon: Icons.phone,
+                      data: 'Terms and Conditions',
+                      icon: Icons.security_outlined,
                     ),
                   ],
                 ))));

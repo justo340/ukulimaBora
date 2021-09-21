@@ -85,12 +85,16 @@ class HomeHeader extends StatelessWidget {
         ),
         Container(
           padding: UkulimaBoraCustomSpaces.smallMarginSpacing,
-          child: CircleAvatar(
-            backgroundColor: UkulimaBoraCommonColors.appBackgroudColor,
-            radius: 25,
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(profileRoute),
-            ),
+          child: GestureDetector(
+            onTap: () => Navigator.of(context).pushNamed(profileRoute),
+            child: CircleAvatar(
+                backgroundColor: UkulimaBoraCommonColors.appVeryBlackColor,
+                radius: 25,
+                child: Icon(
+                  Icons.person,
+                  size: 25,
+                  color: UkulimaBoraCommonColors.appGreenColor,
+                )),
           ),
         ),
       ],
@@ -121,17 +125,20 @@ class HomeBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 TaskChoiceCard(
-                  buttonAction: () {},
+                  buttonAction: () =>
+                      Navigator.of(context).pushNamed(landPrepRoute),
                   taskImage: 'assets/images/land_prep.png',
                   taskName: UkulimaBoraActivities.land,
                 ),
                 TaskChoiceCard(
-                  buttonAction: () {},
+                  buttonAction: () =>
+                      Navigator.of(context).pushNamed(plantingRoute),
                   taskImage: 'assets/images/plant.png',
                   taskName: UkulimaBoraActivities.plant,
                 ),
                 TaskChoiceCard(
-                  buttonAction: () {},
+                  buttonAction: () =>
+                      Navigator.of(context).pushNamed(fertilizerRoute),
                   taskImage: 'assets/images/fertilizer.png',
                   taskName: UkulimaBoraActivities.fertilizer,
                 ),
@@ -144,17 +151,20 @@ class HomeBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 TaskChoiceCard(
-                  buttonAction: () {},
+                  buttonAction: () =>
+                      Navigator.of(context).pushNamed(irrigationRoute),
                   taskImage: 'assets/images/irrigate.png',
                   taskName: UkulimaBoraActivities.irrigate,
                 ),
                 TaskChoiceCard(
-                  buttonAction: () {},
+                  buttonAction: () =>
+                      Navigator.of(context).pushNamed(pesticideRoute),
                   taskImage: 'assets/images/pesticide.png',
                   taskName: UkulimaBoraActivities.pesticide,
                 ),
                 TaskChoiceCard(
-                  buttonAction: () {},
+                  buttonAction: () =>
+                      Navigator.of(context).pushNamed(harvestRoute),
                   taskImage: 'assets/images/harvest.png',
                   taskName: UkulimaBoraActivities.havest,
                 ),
@@ -177,7 +187,7 @@ class HomeWeatherCard extends StatelessWidget {
     return Container(
       padding: UkulimaBoraCustomSpaces.largerMarginSpacing,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => Navigator.of(context).pushNamed(weatherRoute),
         child: Card(
             elevation: 3,
             child: Container(
@@ -188,7 +198,7 @@ class HomeWeatherCard extends StatelessWidget {
                 height: 100,
                 width: MediaQuery.of(context).size.width,
                 child: Row(
-                  children: [
+                  children: <Widget>[
                     Image.asset(
                       'assets/images/weather.png',
                       width: 60,

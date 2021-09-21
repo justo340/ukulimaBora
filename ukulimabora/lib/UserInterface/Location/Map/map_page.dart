@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -12,10 +13,10 @@ class _MapPageState extends State<MapPage> {
 
   void _onMapCreated(GoogleMapController googleMapController) {
     setState(() {
-      _markers.add(const Marker(
-          markerId: MarkerId('farm_id'),
-          position: LatLng(36.8219, -1.2921),
-          infoWindow: InfoWindow(title: 'My Farm')));
+      _markers.add(Marker(
+          markerId: const MarkerId('farm_id'),
+          position: cameraPosition,
+          infoWindow: const InfoWindow(title: 'My Farm')));
     });
   }
 
@@ -23,7 +24,14 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Map'),
+          iconTheme:
+              IconThemeData(color: UkulimaBoraCommonColors.appBackgroudColor),
+          backgroundColor: UkulimaBoraCommonColors.appGreenColor,
+          centerTitle: true,
+          title: Text(
+            UkulimaBoraCommonText.mapText,
+            style: TextStyle(color: UkulimaBoraCommonColors.appBackgroudColor),
+          ),
         ),
         body: GoogleMap(
             onMapCreated: _onMapCreated,

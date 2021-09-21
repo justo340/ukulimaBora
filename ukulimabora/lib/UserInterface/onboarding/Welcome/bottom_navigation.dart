@@ -37,7 +37,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications), label: 'Notification'),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: 'Task')
+          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: 'Tasks')
         ],
         currentIndex: selectedIndex,
         onTap: bottomNavigatorFunction,
