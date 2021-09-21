@@ -19,8 +19,8 @@ class _AddFarmPageState extends State<AddFarmPage> {
   String chosenCrop;
   List<String> crops = <String>[
     UkulimaBoraCrops.maizeText,
-    UkulimaBoraCrops.bananaText,
-    UkulimaBoraCrops.potatoText,
+    // UkulimaBoraCrops.bananaText,
+    // UkulimaBoraCrops.potatoText,
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,8 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         icon: Icon(
                           Icons.search,
                           size: 20,
-                          color: UkulimaBoraCommonColors.appBackgroudColor,
+                          color: UkulimaBoraCommonColors.appBackgroudColor
+                              .withOpacity(0.3),
                         ),
                         obscuretext: false,
                         style: TextStyle(
@@ -72,7 +73,8 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         icon: Icon(
                           Icons.note_rounded,
                           size: 20,
-                          color: UkulimaBoraCommonColors.appBackgroudColor,
+                          color: UkulimaBoraCommonColors.appBackgroudColor
+                              .withOpacity(0.3),
                         ),
                         obscuretext: false,
                         style: TextStyle(
@@ -134,7 +136,14 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         buttonColor: UkulimaBoraCommonColors.appGreenColor,
                         buttonText: UkulimaBoraCommonText.saveMessage,
                         textColor: UkulimaBoraCommonColors.appBackgroudColor,
-                      )
+                      ),
+                      const SizedBox(height: 30),
+                      Text(
+                        UkulimaBoraCommonText.supportText,
+                        style: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor
+                                .withOpacity(0.3)),
+                      ),
                     ],
                   )),
             ),

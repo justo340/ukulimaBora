@@ -42,6 +42,17 @@ class UkulimaBoraCommonText {
   static String placeText = 'Search Location';
   static String descriptionText = 'Enter description';
   static String cropSelectionText = 'Select Crop';
+  static String landPrepText = 'Land Prep';
+  static String plantingText = 'Planting';
+  static String fertilizerText = 'Apply Fertilizer';
+  static String irrigationText = 'Irrigation';
+  static String pesticideText = 'Apply Pesticide';
+  static String harvestText = 'Harvesting';
+  static String supportText = 'Support for more crops will be added';
+  static String suggestionText = 'Suggested Days';
+  static String mapText = 'Map';
+  static String weatherText = 'Weather Update';
+  static String dailyForecastText = 'Daily Forecast';
 }
 
 class UkulimaBoraCommonColors {
