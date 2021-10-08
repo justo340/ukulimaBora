@@ -16,11 +16,13 @@ class UkulimaBoraCommonText {
   static String doneMessage = 'Done';
   static String saveMessage = 'Save';
   static String phoneText = 'Phone Number';
+  static String emailText = 'Email Address';
   static String pinText = 'PIN';
   static String pinConfirmationText = 'confirm PIN';
   static String lastNameText = 'Last Name';
   static String firstNameText = 'First Name';
   static String noPhoneMessage = 'Valid phone number is required';
+  static String noEmailMessage = 'Valid email address is required';
   static String noLastNameMessage = 'Last name is required';
   static String noPinMessage = 'PIN is required';
   static String mismatchedPinMessage = 'PIN do not match';
@@ -29,11 +31,15 @@ class UkulimaBoraCommonText {
   static String longPhoneMessage = 'Phone number is too long';
   static String shortLastNameMessage = 'Last name is too short';
   static String shortFirstNameMessage = 'First name is too short';
-  static String invalidPinMessage = 'Enter a 4 digit PIN ';
+  static String invalidPinMessage = 'Enter a 6 digit PIN ';
   static String registerhelpText = 'To get access to awesome farming insights';
   static String registerMainText = 'Create Account';
+  static String registerErrorText =
+      'Error occured while signing up please try again';
   static String loginMainText = 'Sign In';
   static String alreadyAMemberText = 'Already have an Account ';
+  static String noAccountText = 'Have no Account ';
+  static String noUserText = 'User does not exist sign up and try again ';
   static String todayQuestionText = 'What would you like to do today?';
   static String addFarmTitle = 'Add Your Farm';
   static String notificationText = 'Notifications';
@@ -99,3 +105,6 @@ class UkulimaBoraCrops {
   static String potatoText = 'Potato';
   static String bananaText = 'Banana';
 }
+
+RegExp emailRegexp = RegExp(
+    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");

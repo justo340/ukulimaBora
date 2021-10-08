@@ -11,7 +11,7 @@ class TasksPage extends StatelessWidget {
         children: <Widget>[
           CustomTaskAppBar(),
           const SizedBox(height: 20),
-          // TaskConatiner()
+          TaskConatiner()
         ],
       ),
     );
@@ -19,6 +19,7 @@ class TasksPage extends StatelessWidget {
 }
 
 class CustomTaskAppBar extends StatelessWidget {
+  // double percentage = complete;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +37,7 @@ class CustomTaskAppBar extends StatelessWidget {
         ),
         padding: UkulimaBoraCustomSpaces.largerMarginSpacing,
         child: Column(
-          children: [
+          children: <Widget>[
             const SizedBox(
               height: 40,
             ),
@@ -80,6 +81,8 @@ class TaskConatiner extends StatefulWidget {
 }
 
 class _TaskConatinerState extends State<TaskConatiner> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -92,21 +95,80 @@ class _TaskConatinerState extends State<TaskConatiner> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('data',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: UkulimaBoraCommonColors.appBackgroudColor)),
-              UkulimaBoraDivider.normaldivider,
-              const Text('data',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ))
+              TaskRow(
+                isSelected: isSelected,
+                activity: UkulimaBoraActivities.land,
+              ),
+              TaskRow(
+                isSelected: isSelected,
+                activity: UkulimaBoraActivities.plant,
+              ),
+              TaskRow(
+                isSelected: isSelected,
+                activity: UkulimaBoraActivities.irrigate,
+              ),
+              TaskRow(
+                isSelected: isSelected,
+                activity: UkulimaBoraActivities.fertilizer,
+              ),
+              TaskRow(
+                isSelected: isSelected,
+                activity: UkulimaBoraActivities.pesticide,
+              ),
+              TaskRow(
+                isSelected: isSelected,
+                activity: UkulimaBoraActivities.havest,
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class TaskRow extends StatefulWidget {
+  TaskRow({
+    @required this.isSelected,
+    @required this.activity,
+  });
+  bool isSelected;
+  String activity;
+  int percentage;
+  // double interval = 16.67;
+  // int complete;
+
+  @override
+  _TaskRowState createState() => _TaskRowState();
+}
+
+class _TaskRowState extends State<TaskRow> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Checkbox(
+            checkColor: UkulimaBoraCommonColors.appGreenColor,
+            value: widget.isSelected,
+            onChanged: (bool newValue) {
+              setState(() {
+                widget.isSelected = newValue;
+
+                // stderr.writeln(widget.percentage);
+              });
+            },
+            activeColor: UkulimaBoraCommonColors.appGreenColor,
+            fillColor: MaterialStateProperty.all(
+                UkulimaBoraCommonColors.appBackgroudColor)),
+        const SizedBox(
+          width: 20,
+        ),
+        Text(widget.activity,
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: UkulimaBoraCommonColors.appBackgroudColor)),
+      ],
     );
   }
 }

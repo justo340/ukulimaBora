@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ukulimabora/Infrustracture/Services/Authentication_service.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
 import 'package:ukulimabora/Shared/Widgets/common_appbar.dart';
@@ -35,6 +37,8 @@ class _ProfilePageState extends State<ProfilePage> {
             CommonAppButton(
                 buttonText: UkulimaBoraCommonText.logoutText,
                 buttonAction: () async {
+                  context.read<AuthenticationService>().signOut();
+
                   Navigator.of(context).pushNamed(loginRoute);
                 },
                 buttonColor: UkulimaBoraCommonColors.appGreenColor,
