@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ukulimabora/Infrustracture/Services/Authentication_service.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
 import 'package:ukulimabora/Shared/Widgets/common_text_input_field.dart';
@@ -11,8 +15,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
-  TextEditingController textController;
-  String phoneNumber;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  String email;
   String pin;
   @override
   Widget build(BuildContext context) {
@@ -49,28 +54,25 @@ class _LoginPageState extends State<LoginPage> {
                         key: _loginFormKey,
                         child: Column(children: <Widget>[
                           UkulimaBoraTextFormField(
-                            icon: const Icon(Icons.person, size: 20),
+                            icon: const Icon(Icons.email, size: 20),
                             obscuretext: false,
-                            maximumLength: 10,
-                            controller: textController,
-                            hinttext: UkulimaBoraCommonText.phoneText,
+                            controller: emailController,
+                            hinttext: UkulimaBoraCommonText.emailText,
                             fillcolor: null,
-                            keyboardtype: TextInputType.phone,
+                            keyboardtype: TextInputType.emailAddress,
                             validator: (String val) {
                               if (val.isEmpty) {
-                                return UkulimaBoraCommonText.noPhoneMessage;
-                              } else if (val.length < 9) {
-                                return UkulimaBoraCommonText.shortPhoneMessage;
-                              } else if (val.length > 10) {
-                                return UkulimaBoraCommonText.longPhoneMessage;
+                                return UkulimaBoraCommonText.noEmailMessage;
+                              } else if (emailRegexp.hasMatch(val) == false) {
+                                return UkulimaBoraCommonText.noEmailMessage;
                               }
                               return null;
                             },
                             onchanged: (String val) {
-                              phoneNumber = val;
+                              email = val;
                             },
                             onsaved: (String val) {
-                              phoneNumber = val;
+                              email = val;
                               return;
                             },
                           ),
@@ -78,15 +80,15 @@ class _LoginPageState extends State<LoginPage> {
                           UkulimaBoraTextFormField(
                             icon: const Icon(Icons.lock, size: 20),
                             obscuretext: true,
-                            maximumLength: 4,
-                            controller: textController,
+                            maximumLength: 6,
+                            controller: passwordController,
                             hinttext: UkulimaBoraCommonText.pinText,
                             fillcolor: null,
                             keyboardtype: TextInputType.phone,
                             validator: (String val) {
                               if (val.isEmpty) {
                                 return UkulimaBoraCommonText.noPinMessage;
-                              } else if (val.length != 4) {
+                              } else if (val.length != 6) {
                                 return UkulimaBoraCommonText.invalidPinMessage;
                               }
                               return null;
@@ -107,12 +109,52 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               _loginFormKey.currentState.save();
 
-                              await Navigator.of(context).pushNamed(homeRoute);
+                              context.read<AuthenticationService>().signIn(
+                                  email: emailController.text,
+                                  password: passwordController.text);
+
+                              if (FirebaseAuthException != null) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            UkulimaBoraCommonText.noUserText)));
+
+                                await Navigator.of(context)
+                                    .pushNamed(loginRoute);
+                              } else {
+                                await Navigator.of(context)
+                                    .pushNamed(homeRoute);
+                              }
                             },
                             buttonColor: UkulimaBoraCommonColors.appGreenColor,
                             buttonText: UkulimaBoraCommonText.loginText,
                             textColor: UkulimaBoraCommonColors.appWhiteColor,
-                          )
+                          ),
+                          SizedBox(
+                            height: 20,
+                            child: RichText(
+                              text: TextSpan(children: <InlineSpan>[
+                                TextSpan(
+                                    text: UkulimaBoraCommonText.noAccountText,
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: UkulimaBoraCommonColors
+                                            .appBlackColor)),
+                                const WidgetSpan(child: Text('')),
+                                TextSpan(
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () async {
+                                        await Navigator.of(context)
+                                            .pushNamed(registrationRoute);
+                                      },
+                                    text: UkulimaBoraCommonText.registerText,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: UkulimaBoraCommonColors
+                                            .appBlueColor))
+                              ]),
+                            ),
+                          ),
                         ]))
                   ]),
                 ),

@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ukulimabora/Infrustracture/Services/Authentication_service.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
 import 'package:ukulimabora/Shared/Widgets/common_text_input_field.dart';
@@ -17,7 +20,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
   String phoneNumber;
   String pin1;
   String pin2;
-  TextEditingController textController;
+  String email;
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController pin1Controller = TextEditingController();
+  final TextEditingController pin2Controller = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,26 +40,29 @@ class _RegistrationPageState extends State<RegistrationPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const RegistrationHeader(),
-              SizedBox(
-                height: 20,
-                child: RichText(
-                  text: TextSpan(children: <InlineSpan>[
-                    TextSpan(
-                        text: UkulimaBoraCommonText.alreadyAMemberText,
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: UkulimaBoraCommonColors.appBlackColor)),
-                    const WidgetSpan(child: Text('')),
-                    TextSpan(
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () async {
-                            await Navigator.of(context).pushNamed(loginRoute);
-                          },
-                        text: UkulimaBoraCommonText.loginText,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: UkulimaBoraCommonColors.appBlueColor))
-                  ]),
+              Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child: SizedBox(
+                  height: 20,
+                  child: RichText(
+                    text: TextSpan(children: <InlineSpan>[
+                      TextSpan(
+                          text: UkulimaBoraCommonText.alreadyAMemberText,
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: UkulimaBoraCommonColors.appBlackColor)),
+                      const WidgetSpan(child: Text('')),
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () async {
+                              await Navigator.of(context).pushNamed(loginRoute);
+                            },
+                          text: UkulimaBoraCommonText.loginText,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: UkulimaBoraCommonColors.appBlueColor))
+                    ]),
+                  ),
                 ),
               ),
               Container(
@@ -69,7 +81,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 icon: const Icon(Icons.person, size: 20),
                                 obscuretext: false,
                                 maximumLength: 15,
-                                controller: textController,
+                                controller: firstNameController,
                                 hinttext: UkulimaBoraCommonText.firstNameText,
                                 fillcolor: null,
                                 keyboardtype: TextInputType.name,
@@ -96,7 +108,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 icon: const Icon(Icons.person, size: 20),
                                 obscuretext: false,
                                 maximumLength: 15,
-                                controller: textController,
+                                controller: lastNameController,
                                 hinttext: UkulimaBoraCommonText.lastNameText,
                                 fillcolor: null,
                                 keyboardtype: TextInputType.name,
@@ -120,10 +132,35 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               ),
                               const SizedBox(height: 20),
                               UkulimaBoraTextFormField(
+                                icon: const Icon(Icons.email, size: 20),
+                                obscuretext: false,
+                                controller: emailController,
+                                hinttext: UkulimaBoraCommonText.emailText,
+                                fillcolor: null,
+                                keyboardtype: TextInputType.emailAddress,
+                                validator: (String val) {
+                                  if (val.isEmpty) {
+                                    return UkulimaBoraCommonText.noEmailMessage;
+                                  } else if (emailRegexp.hasMatch(val) ==
+                                      false) {
+                                    return UkulimaBoraCommonText.noEmailMessage;
+                                  }
+                                  return null;
+                                },
+                                onchanged: (String val) {
+                                  email = val;
+                                },
+                                onsaved: (String val) {
+                                  email = val;
+                                  return;
+                                },
+                              ),
+                              const SizedBox(height: 20),
+                              UkulimaBoraTextFormField(
                                 icon: const Icon(Icons.phone, size: 20),
                                 obscuretext: false,
                                 maximumLength: 10,
-                                controller: textController,
+                                controller: phoneNumberController,
                                 hinttext: UkulimaBoraCommonText.phoneText,
                                 fillcolor: null,
                                 keyboardtype: TextInputType.phone,
@@ -151,15 +188,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               UkulimaBoraTextFormField(
                                 icon: const Icon(Icons.lock, size: 20),
                                 obscuretext: true,
-                                maximumLength: 4,
-                                controller: textController,
+                                maximumLength: 6,
+                                controller: pin1Controller,
                                 hinttext: UkulimaBoraCommonText.pinText,
                                 fillcolor: null,
                                 keyboardtype: TextInputType.phone,
                                 validator: (String val) {
                                   if (val.isEmpty) {
                                     return UkulimaBoraCommonText.noPinMessage;
-                                  } else if (val.length != 4) {
+                                  } else if (val.length != 6) {
                                     return UkulimaBoraCommonText
                                         .invalidPinMessage;
                                   }
@@ -177,8 +214,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               UkulimaBoraTextFormField(
                                 icon: const Icon(Icons.lock, size: 20),
                                 obscuretext: true,
-                                maximumLength: 4,
-                                controller: textController,
+                                maximumLength: 6,
+                                controller: pin2Controller,
                                 hinttext:
                                     UkulimaBoraCommonText.pinConfirmationText,
                                 fillcolor: null,
@@ -186,7 +223,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 validator: (String val) {
                                   if (val.isEmpty) {
                                     return UkulimaBoraCommonText.noPinMessage;
-                                  } else if (val.length != 4) {
+                                  } else if (val.length != 6) {
                                     return UkulimaBoraCommonText
                                         .invalidPinMessage;
                                   } else if (pin1 != val) {
@@ -212,8 +249,22 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   }
                                   _registrationFormKey.currentState.save();
 
-                                  await Navigator.of(context)
-                                      .pushNamed(loginRoute);
+                                  context.read<AuthenticationService>().signUp(
+                                      email: emailController.text,
+                                      password: pin2Controller.text);
+
+                                  if (FirebaseAuthException != null) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(UkulimaBoraCommonText
+                                                .registerErrorText)));
+
+                                    await Navigator.of(context)
+                                        .pushNamed(registrationRoute);
+                                  } else {
+                                    await Navigator.of(context)
+                                        .pushNamed(loginRoute);
+                                  }
                                 },
                                 buttonColor:
                                     UkulimaBoraCommonColors.appGreenColor,

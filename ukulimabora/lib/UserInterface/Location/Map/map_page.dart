@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:ukulimabora/Infrustracture/Services/Application_bloc.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class MapPage extends StatefulWidget {
@@ -20,8 +22,18 @@ class _MapPageState extends State<MapPage> {
     });
   }
 
+  TextEditingController textController;
+  String place;
+
   @override
   Widget build(BuildContext context) {
+    final ApplicationBloc applicationBloc =
+        Provider.of<ApplicationBloc>(context);
+
+    final LatLng currentPosition = LatLng(
+        applicationBloc.currentLocation.latitude,
+        applicationBloc.currentLocation.longitude);
+
     return Scaffold(
         appBar: AppBar(
           iconTheme:
@@ -33,10 +45,15 @@ class _MapPageState extends State<MapPage> {
             style: TextStyle(color: UkulimaBoraCommonColors.appBackgroudColor),
           ),
         ),
-        body: GoogleMap(
-            onMapCreated: _onMapCreated,
-            markers: _markers,
-            initialCameraPosition:
-                CameraPosition(target: cameraPosition, zoom: 20, tilt: 0.5)));
+        body: (applicationBloc.currentLocation != null)
+            ? GoogleMap(
+                myLocationEnabled: true,
+                onMapCreated: _onMapCreated,
+                markers: _markers,
+                initialCameraPosition: CameraPosition(
+                    target: currentPosition, zoom: 17, tilt: 0.2))
+            : CircularProgressIndicator(
+                backgroundColor: UkulimaBoraCommonColors.appGreenColor,
+              ));
   }
 }
