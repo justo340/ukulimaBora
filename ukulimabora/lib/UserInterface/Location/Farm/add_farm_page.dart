@@ -13,8 +13,8 @@ class AddFarmPage extends StatefulWidget {
 
 class _AddFarmPageState extends State<AddFarmPage> {
   final GlobalKey<FormState> _addFarmFormKey = GlobalKey<FormState>();
-  TextEditingController farmLocationController;
-  TextEditingController farmDescriptionTextController;
+  TextEditingController farmLocationController = TextEditingController();
+  TextEditingController farmDescriptionTextController = TextEditingController();
   String description;
   String crop;
   String chosenCrop;

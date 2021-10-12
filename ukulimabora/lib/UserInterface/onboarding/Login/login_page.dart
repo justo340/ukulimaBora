@@ -113,7 +113,10 @@ class _LoginPageState extends State<LoginPage> {
                                   email: emailController.text,
                                   password: passwordController.text);
 
-                              if (FirebaseAuthException != null) {
+                              if (FirebaseAuthException == null) {
+                                await Navigator.of(context)
+                                    .pushNamed(homeRoute);
+                              } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                         content: Text(
@@ -121,9 +124,6 @@ class _LoginPageState extends State<LoginPage> {
 
                                 await Navigator.of(context)
                                     .pushNamed(loginRoute);
-                              } else {
-                                await Navigator.of(context)
-                                    .pushNamed(homeRoute);
                               }
                             },
                             buttonColor: UkulimaBoraCommonColors.appGreenColor,
