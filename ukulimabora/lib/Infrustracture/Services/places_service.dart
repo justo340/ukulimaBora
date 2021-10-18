@@ -3,13 +3,12 @@ import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 import 'package:ukulimabora/Infrustracture/Models/places_search.dart';
+import 'package:ukulimabora/Shared/Common/keys.dart';
 
 class PlacesService {
-  final dynamic key = 'AIzaSyAWL9n8oto4xec31SYxBfUkWCJmSZcvxXw';
-
   Future<List<PlaceSearch>> getAutocomplete(String search) async {
     final Uri url = Uri.parse(
-        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$search&key=$key&components=country:ke');
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$search&key=$googlePlaceskey&components=country:ke');
 
     final http.Response response = await http.get(url);
 

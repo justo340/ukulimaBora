@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 
-class WeatherCard extends StatefulWidget {
-  @override
-  _WeatherCardState createState() => _WeatherCardState();
-}
+class WeatherCard extends StatelessWidget {
+  const WeatherCard(
+      {@required this.weatherForcast,
+      @required this.date,
+      @required this.windSpeed,
+      @required this.maxTemparatures,
+      @required this.minTemparatures});
 
-class _WeatherCardState extends State<WeatherCard> {
+  final List<dynamic> weatherForcast;
+  final double maxTemparatures;
+  final double minTemparatures;
+  final String date;
+  final double windSpeed;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,26 +24,52 @@ class _WeatherCardState extends State<WeatherCard> {
         elevation: 2,
         child: Container(
           padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('time and day',
+                  Text('Max temp : $maxTemparatures °C',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           color: UkulimaBoraCommonColors.appBackgroudColor)),
-                  UkulimaBoraDivider.normaldivider,
-                  Text('weather',
+                  Text('Min temp : $minTemparatures °C',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                ],
+              ),
+              UkulimaBoraDivider.normaldivider,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(weatherForcast[0]['description'].toString(),
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appBackgroudColor))
+                          color: UkulimaBoraCommonColors.appVeryBlackColor)),
+                  Text('Wind speed :$windSpeed m/s',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          color: UkulimaBoraCommonColors.appBackgroudColor)),
                 ],
               ),
-              const Icon(Icons.circle)
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('$date',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                ],
+              )
             ],
           ),
         ),

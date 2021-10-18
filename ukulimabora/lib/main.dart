@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:ukulimabora/Infrustracture/Services/Application_bloc.dart';
 import 'package:ukulimabora/Infrustracture/Services/Authentication_service.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Login/login_page.dart';
@@ -25,7 +26,7 @@ class UkulimaBora extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
+      providers: <SingleChildWidget>[
         ChangeNotifierProvider<ApplicationBloc>(
           create: (BuildContext context) => ApplicationBloc(),
         ),

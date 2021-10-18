@@ -22,9 +22,6 @@ class ErrorPage extends StatelessWidget {
             backgroundColor: Colors.transparent,
             body: Column(
               children: <Widget>[
-                const CommonAppBar(
-                  label: '',
-                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 1.2,
                   width: MediaQuery.of(context).size.width,
