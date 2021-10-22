@@ -108,3 +108,46 @@ class UkulimaBoraCrops {
 
 RegExp emailRegexp = RegExp(
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+
+class OptimalConditions {
+  static List<dynamic> optimalDayPlantingTemparatures = <dynamic>[
+    18,
+    19,
+    20,
+    21,
+    22
+  ];
+  static List<dynamic> optimalNightPlantingTemparatures = <dynamic>[
+    10,
+    11,
+    12,
+    14
+  ];
+
+  static List<dynamic> optimalIrrigationTemparatures = <dynamic>[
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ];
+
+  static List<dynamic> optimalWind = <dynamic>[1, 2, 3, 4, 5, 6];
+  static List<dynamic> optimalharvestingTemparatures = <dynamic>[
+    27,
+    28,
+    29,
+    30
+  ];
+  static List<dynamic> optimalharvestinghumidity = <dynamic>[
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74
+  ];
+}
