@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 
-class SuggestionCard extends StatefulWidget {
-  @override
-  _SuggestionCardState createState() => _SuggestionCardState();
-}
+class IrrigationSuggestionCard extends StatelessWidget {
+  const IrrigationSuggestionCard({
+    @required this.date,
+    @required this.dayTemparature,
+    @required this.bestWeather,
+  });
+  final String date;
+  final dynamic dayTemparature;
+  final String bestWeather;
 
-class _SuggestionCardState extends State<SuggestionCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,20 +26,24 @@ class _SuggestionCardState extends State<SuggestionCard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('time and day',
+                  Text(date,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           color: UkulimaBoraCommonColors.appBackgroudColor)),
                   UkulimaBoraDivider.normaldivider,
-                  Text('weather',
+                  Text(bestWeather,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appBackgroudColor))
+                          color: UkulimaBoraCommonColors.appVeryBlackColor))
                 ],
               ),
-              const Icon(Icons.circle)
+              Text('Average Temp :$dayTemparature °C',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                      color: UkulimaBoraCommonColors.appBackgroudColor)),
             ],
           ),
         ),

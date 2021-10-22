@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
-import 'package:ukulimabora/Shared/Widgets/common_appbar.dart';
 
 class ErrorPage extends StatelessWidget {
   @override
@@ -15,7 +14,6 @@ class ErrorPage extends StatelessWidget {
                 end: Alignment.bottomRight,
                 colors: <Color>[
               UkulimaBoraCommonColors.appLightGreenColor,
-              // Colors.blueGrey.shade600,
               UkulimaBoraCommonColors.appVeryBlackColor
             ])),
         child: Scaffold(

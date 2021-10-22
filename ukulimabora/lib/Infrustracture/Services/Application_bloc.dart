@@ -4,7 +4,6 @@ import 'package:geolocator/geolocator.dart';
 
 import 'package:ukulimabora/Infrustracture/Models/places_search.dart';
 import 'package:ukulimabora/Infrustracture/Services/geolocator_service.dart';
-import 'package:ukulimabora/Infrustracture/Services/places_service.dart';
 import 'package:ukulimabora/Infrustracture/Services/weather_service.dart';
 
 class ApplicationBloc with ChangeNotifier {
@@ -14,7 +13,6 @@ class ApplicationBloc with ChangeNotifier {
   }
 
   final GeolocatorService geolocatorService = GeolocatorService();
-  final PlacesService placesService = PlacesService();
   final WeatherForcast weatherForcast = WeatherForcast();
 
   Position currentLocation;
@@ -25,12 +23,6 @@ class ApplicationBloc with ChangeNotifier {
     currentLocation = await geolocatorService.getCurrentLocation();
     notifyListeners();
     return currentLocation;
-  }
-
-  Future<List<PlaceSearch>> searchPlaces(String searchTerm) async {
-    searchResults = await placesService.getAutocomplete(searchTerm);
-    notifyListeners();
-    return searchResults;
   }
 
   Future<Map<String, dynamic>> getWeather() async {
