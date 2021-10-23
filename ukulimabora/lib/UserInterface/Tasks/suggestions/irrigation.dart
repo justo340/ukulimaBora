@@ -93,7 +93,10 @@ class _IrrigationSuggestionState extends State<IrrigationSuggestion> {
                   ],
                 );
               } else if (snapshot.hasError) {
-                return ErrorPage();
+                return ErrorPage(
+                  errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+                  errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+                );
               }
               return UkulimaBoraLoadingIndicator();
             }),

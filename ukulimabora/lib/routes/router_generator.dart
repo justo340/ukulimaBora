@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/error_page.dart';
 import 'package:ukulimabora/UserInterface/Location/Farm/add_farm_page.dart';
 import 'package:ukulimabora/UserInterface/Location/Map/map_page.dart';
@@ -61,6 +62,9 @@ class RouteGenerator {
 
 Route<dynamic> _errorRoute() {
   return MaterialPageRoute<dynamic>(builder: (_) {
-    return ErrorPage();
+    return ErrorPage(
+      errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+      errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+    );
   });
 }

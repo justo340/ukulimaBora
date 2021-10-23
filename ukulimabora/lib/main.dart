@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:ukulimabora/Infrustracture/Models/network_connection.dart';
 import 'package:ukulimabora/Infrustracture/Services/Application_bloc.dart';
 import 'package:ukulimabora/Infrustracture/Services/Authentication_service.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Login/login_page.dart';
 import 'package:ukulimabora/UserInterface/onboarding/Welcome/bottom_navigation.dart';
 
-import 'package:ukulimabora/routes/router_generator.dart';
-import 'package:ukulimabora/routes/routes.dart';
+// import 'package:ukulimabora/routes/router_generator.dart';
+// import 'package:ukulimabora/routes/routes.dart';
 
-import 'Shared/Common/constants.dart';
+// import 'Infrustracture/Models/network_connection.dart';
+// import 'Shared/Common/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,28 +42,19 @@ class UkulimaBora extends StatelessWidget {
             initialData: null)
       ],
       child: Builder(builder: (BuildContext context) {
-        final User firebaseUser = context.watch<User>();
-        return MaterialApp(
-            initialRoute: welcomeRoute,
-            onGenerateRoute: RouteGenerator.generateRoute,
-            debugShowCheckedModeBanner: false,
-            title: 'UkulimaBora',
-            theme: ThemeData(
-                primaryColor: UkulimaBoraCommonColors.appBackgroudColor,
-                scaffoldBackgroundColor: UkulimaBoraCommonColors.appWhiteColor),
-            home: AuthenticationWrapper(user: firebaseUser));
+        return NetworkConnectivity();
       }),
     );
   }
 }
 
 class AuthenticationWrapper extends StatelessWidget {
-  const AuthenticationWrapper({@required this.user});
+  const AuthenticationWrapper();
 
-  final User user;
   @override
   Widget build(BuildContext context) {
-    if (user != null) {
+    final User firebaseUser = context.watch<User>();
+    if (firebaseUser != null) {
       return BottomNavigation();
     }
     return LoginPage();

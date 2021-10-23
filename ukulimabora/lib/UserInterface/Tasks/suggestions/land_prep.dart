@@ -94,7 +94,10 @@ class _LandPrepSuggestionState extends State<LandPrepSuggestion> {
                   ],
                 );
               } else if (snapshot.hasError) {
-                return ErrorPage();
+                return ErrorPage(
+                  errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+                  errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+                );
               }
               return UkulimaBoraLoadingIndicator();
             }),
