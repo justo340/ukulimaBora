@@ -104,7 +104,10 @@ class _WeatherPageState extends State<WeatherPage> {
                 ],
               );
             } else if (snapshot.hasError) {
-              return ErrorPage();
+              return ErrorPage(
+                errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+                errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+              );
             }
             return UkulimaBoraLoadingIndicator();
           }),

@@ -17,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  FirebaseAuthException firebaseAuthException = FirebaseAuthException(code: '');
   String email;
   String pin;
   @override
@@ -113,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                   email: emailController.text,
                                   password: passwordController.text);
 
-                              if (FirebaseAuthException == null) {
+                              if (firebaseAuthException.message == null) {
                                 await Navigator.of(context)
                                     .pushNamed(homeRoute);
                               } else {
@@ -126,7 +127,8 @@ class _LoginPageState extends State<LoginPage> {
                                     .pushNamed(loginRoute);
                               }
                             },
-                            buttonColor: UkulimaBoraCommonColors.appGreenColor,
+                            buttonColor:
+                                UkulimaBoraCommonColors.appVeryBlackColor,
                             buttonText: UkulimaBoraCommonText.loginText,
                             textColor: UkulimaBoraCommonColors.appWhiteColor,
                           ),

@@ -7,8 +7,11 @@ class UkulimaBoraCommonText {
   static String logoutText = 'LogOut';
   static String registerText = 'Sign Up';
   static String welcomeText = 'Welcome';
-  static String genericErrorMessage =
-      'An error occured, press the button to retry';
+  static String genericErrorTitle = 'An error occured';
+  static String genericErrorMessage = 'press the button to retry';
+  static String networkErrorTitle = 'No Network Connection ';
+  static String networkErrorMessage =
+      ''' Please connect to the internet and press the button to retry''';
   static String retryMessage = 'Retry';
   static String profileMessage = 'Profile';
   static String personalInfoHeader = 'Personal Information';

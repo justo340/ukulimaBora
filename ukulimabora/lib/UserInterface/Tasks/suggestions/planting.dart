@@ -101,7 +101,10 @@ class _PlantingSuggestionState extends State<PlantingSuggestion> {
                 ],
               );
             } else if (snapshot.hasError) {
-              return ErrorPage();
+              return ErrorPage(
+                errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+                errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+              );
             }
             return UkulimaBoraLoadingIndicator();
           }),

@@ -89,7 +89,10 @@ class _FertilizerSuggestionState extends State<FertilizerSuggestion> {
                   ],
                 );
               } else if (snapshot.hasError) {
-                return ErrorPage();
+                return ErrorPage(
+                  errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+                  errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+                );
               }
               return UkulimaBoraLoadingIndicator();
             }),

@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class RegistrationPage extends StatefulWidget {
 
 class _RegistrationPageState extends State<RegistrationPage> {
   final GlobalKey<FormState> _registrationFormKey = GlobalKey<FormState>();
+  FirebaseAuthException firebaseAuthException = FirebaseAuthException(code: '');
   String firstName;
   String lastName;
   String phoneNumber;
@@ -253,7 +255,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                       email: emailController.text,
                                       password: pin2Controller.text);
 
-                                  if (FirebaseAuthException != null) {
+                                  if (firebaseAuthException.message != null) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
                                             content: Text(UkulimaBoraCommonText
@@ -267,7 +269,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   }
                                 },
                                 buttonColor:
-                                    UkulimaBoraCommonColors.appGreenColor,
+                                    UkulimaBoraCommonColors.appVeryBlackColor,
                                 buttonText: UkulimaBoraCommonText.registerText,
                                 textColor:
                                     UkulimaBoraCommonColors.appWhiteColor,

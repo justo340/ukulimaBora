@@ -89,7 +89,10 @@ class _PesticideSuggestionState extends State<PesticideSuggestion> {
                   ],
                 );
               } else if (snapshot.hasError) {
-                return ErrorPage();
+                return ErrorPage(
+                  errorTitle: UkulimaBoraCommonText.genericErrorTitle,
+                  errorMessage: UkulimaBoraCommonText.genericErrorMessage,
+                );
               }
               return UkulimaBoraLoadingIndicator();
             }),

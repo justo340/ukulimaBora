@@ -3,6 +3,10 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
 
 class ErrorPage extends StatelessWidget {
+  ErrorPage({@required this.errorMessage, @required this.errorTitle});
+
+  String errorMessage;
+  String errorTitle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,52 +21,50 @@ class ErrorPage extends StatelessWidget {
               UkulimaBoraCommonColors.appVeryBlackColor
             ])),
         child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Column(
+          backgroundColor: Colors.transparent,
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 1.2,
-                  width: MediaQuery.of(context).size.width,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        SizedBox(
-                            child: Image.asset(
-                          'assets/images/error.png',
-                          height: 150,
-                          width: 150,
-                        )),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
-                          margin: UkulimaBoraCustomSpaces.normalMarginSpacing,
-                          child: Text(
-                            UkulimaBoraCommonText.genericErrorMessage,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color:
-                                    UkulimaBoraCommonColors.appBackgroudColor,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        CommonAppButton(
-                          buttonAction: () => Navigator.of(context).pop,
-                          buttonColor: UkulimaBoraCommonColors.appGreenColor,
-                          buttonText: UkulimaBoraCommonText.retryMessage,
-                          textColor: UkulimaBoraCommonColors.appBackgroudColor,
-                        ),
-                      ],
-                    ),
+                    child: Image.asset(
+                  'assets/images/error.png',
+                  height: 100,
+                  width: 100,
+                )),
+                Container(
+                  padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
+                  margin: UkulimaBoraCustomSpaces.normalMarginSpacing,
+                  child: Text(
+                    errorTitle,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: UkulimaBoraCommonColors.appVeryBlackColor,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500),
                   ),
-                )
+                ),
+                Container(
+                  padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
+                  margin: UkulimaBoraCustomSpaces.normalMarginSpacing,
+                  child: Text(
+                    errorMessage,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: UkulimaBoraCommonColors.appVeryBlackColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+                CommonAppButton(
+                  buttonAction: () => Navigator.of(context).pop,
+                  buttonColor: UkulimaBoraCommonColors.appVeryBlackColor,
+                  buttonText: UkulimaBoraCommonText.retryMessage,
+                  textColor: UkulimaBoraCommonColors.appBackgroudColor,
+                ),
               ],
-            )));
+            ),
+          ),
+        ));
   }
 }
