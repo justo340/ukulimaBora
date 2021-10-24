@@ -63,6 +63,7 @@ class RouteGenerator {
 Route<dynamic> _errorRoute() {
   return MaterialPageRoute<dynamic>(builder: (_) {
     return ErrorPage(
+      image: Image.asset('assets/images/error.png'),
       errorMessage: UkulimaBoraCommonText.genericErrorMessage,
       errorTitle: UkulimaBoraCommonText.genericErrorTitle,
     );

@@ -3,10 +3,15 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
 
 class ErrorPage extends StatelessWidget {
-  ErrorPage({@required this.errorMessage, @required this.errorTitle});
+  const ErrorPage(
+      {@required this.errorMessage,
+      @required this.errorTitle,
+      @required this.image});
 
-  String errorMessage;
-  String errorTitle;
+  final String errorMessage;
+  final String errorTitle;
+  final Image image;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,11 +32,10 @@ class ErrorPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
-                    child: Image.asset(
-                  'assets/images/error.png',
                   height: 100,
                   width: 100,
-                )),
+                  child: image,
+                ),
                 Container(
                   padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
                   margin: UkulimaBoraCustomSpaces.normalMarginSpacing,

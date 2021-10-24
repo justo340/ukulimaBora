@@ -102,6 +102,7 @@ class _PlantingSuggestionState extends State<PlantingSuggestion> {
               );
             } else if (snapshot.hasError) {
               return ErrorPage(
+                image: Image.asset('assets/images/error.png'),
                 errorTitle: UkulimaBoraCommonText.genericErrorTitle,
                 errorMessage: UkulimaBoraCommonText.genericErrorMessage,
               );
