@@ -33,11 +33,16 @@ class _BottomNavigationState extends State<BottomNavigation> {
         unselectedIconTheme:
             IconThemeData(color: UkulimaBoraCommonColors.appVeryBlackColor),
         backgroundColor: UkulimaBoraCommonColors.appGreenColor,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: 'Notification'),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: 'Tasks')
+              icon: const Icon(Icons.home),
+              label: UkulimaBoraCommonText.homeText),
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.notifications),
+              label: UkulimaBoraCommonText.notificationText),
+          BottomNavigationBarItem(
+              icon: const Icon(Icons.assignment),
+              label: UkulimaBoraCommonText.taskText)
         ],
         currentIndex: selectedIndex,
         onTap: bottomNavigatorFunction,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
+import 'package:ukulimabora/Shared/Widgets/zero_display.dart';
 
 class NotificationsPage extends StatelessWidget {
   @override
@@ -20,10 +21,15 @@ class NotificationsPage extends StatelessWidget {
           ],
         ),
       ),
-      body: Scrollbar(
-        child: ListView(
-          children: <Widget>[NotificationsCard(), NotificationsCard()],
+      body: ZeroDisplay(
+        image: Image.asset(
+          'assets/images/zeronotification.png',
+          color: UkulimaBoraCommonColors.appGreenColor,
+          height: 80,
+          width: 80,
         ),
+        noDataTitle: UkulimaBoraCommonText.noNotificationTitle,
+        noDataMessage: UkulimaBoraCommonText.noNotificationMessage,
       ),
     );
   }

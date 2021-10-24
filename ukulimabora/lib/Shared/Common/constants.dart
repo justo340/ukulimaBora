@@ -4,6 +4,9 @@ class UkulimaBoraCommonText {
   static String helloText = 'Hello';
   static String appName = 'Ukulima Bora';
   static String loginText = 'Login';
+  static String homeText = 'Home';
+  static String notificationText = 'Notification';
+  static String taskText = 'Tasks';
   static String logoutText = 'LogOut';
   static String registerText = 'Sign Up';
   static String welcomeText = 'Welcome';
@@ -12,6 +15,10 @@ class UkulimaBoraCommonText {
   static String networkErrorTitle = 'No Network Connection ';
   static String networkErrorMessage =
       ''' Please connect to the internet and press the button to retry''';
+  static String noNotificationTitle = 'No nofications available ';
+  static String noNotificationMessage =
+      '''You have no notifications at the moment please press the home button to exit ''';
+
   static String retryMessage = 'Retry';
   static String profileMessage = 'Profile';
   static String personalInfoHeader = 'Personal Information';
@@ -45,8 +52,6 @@ class UkulimaBoraCommonText {
   static String noUserText = 'User does not exist sign up and try again ';
   static String todayQuestionText = 'What would you like to do today?';
   static String addFarmTitle = 'Add Your Farm';
-  static String notificationText = 'Notifications';
-  static String taskText = 'Tasks';
   static String noPlaceMessage = 'Valid location is required';
   static String placeText = 'Search Location';
   static String descriptionText = 'Enter description';

@@ -39,8 +39,7 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
     try {
       result = await connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-      print(e.toString());
-      return;
+      return e.message;
     }
 
     if (!mounted) {
@@ -68,6 +67,12 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
               primaryColor: UkulimaBoraCommonColors.appBackgroudColor,
               scaffoldBackgroundColor: UkulimaBoraCommonColors.appWhiteColor),
           home: ErrorPage(
+            image: Image.asset(
+              'assets/images/nowifi.png',
+              height: 100,
+              width: 100,
+              color: UkulimaBoraCommonColors.appVeryBlackColor,
+            ),
             errorTitle: UkulimaBoraCommonText.networkErrorTitle,
             errorMessage: UkulimaBoraCommonText.networkErrorMessage,
           ));
