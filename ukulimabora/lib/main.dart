@@ -20,7 +20,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
-          <DeviceOrientation>[DeviceOrientation.portraitUp])
+          <DeviceOrientation>[DeviceOrientation.portraitUp],)
       .then((_) => runApp(UkulimaBora()));
 }
 
@@ -36,14 +36,14 @@ class UkulimaBora extends StatelessWidget {
           create: (BuildContext context) =>
               AuthenticationService(firebaseAuth: FirebaseAuth.instance),
         ),
-        StreamProvider<User>(
+        StreamProvider<User?>(
             create: (BuildContext context) =>
                 context.read<AuthenticationService>().authStateChanges,
-            initialData: null)
+            initialData: null,)
       ],
       child: Builder(builder: (BuildContext context) {
         return NetworkConnectivity();
-      }),
+      },),
     );
   }
 }
@@ -53,7 +53,7 @@ class AuthenticationWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final User firebaseUser = context.watch<User>();
+    final User? firebaseUser = context.watch<User?>();
     if (firebaseUser != null) {
       return BottomNavigation();
     }

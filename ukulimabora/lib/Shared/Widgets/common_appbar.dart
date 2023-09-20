@@ -4,7 +4,7 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class CommonAppBar extends StatelessWidget {
   const CommonAppBar({
-    @required this.label,
+    required this.label,
   });
   final String label;
   @override
@@ -17,7 +17,7 @@ class CommonAppBar extends StatelessWidget {
           child: Text(
         label,
         style: TextStyle(color: UkulimaBoraCommonColors.appBackgroudColor),
-      )),
+      ),),
       backgroundColor: UkulimaBoraCommonColors.appGreenColor,
     );
   }

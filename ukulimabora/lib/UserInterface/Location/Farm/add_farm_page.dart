@@ -17,10 +17,10 @@ class _AddFarmPageState extends State<AddFarmPage> {
   final GlobalKey<FormState> _addFarmFormKey = GlobalKey<FormState>();
   TextEditingController farmLocationController = TextEditingController();
   TextEditingController farmDescriptionTextController = TextEditingController();
-  String location;
-  String description;
-  String crop;
-  String chosenCrop;
+   String? location;
+   String? description;
+   String? crop;
+   String? chosenCrop;
   List<String> crops = <String>[
     UkulimaBoraCrops.maizeText,
     // UkulimaBoraCrops.bananaText,
@@ -45,7 +45,7 @@ class _AddFarmPageState extends State<AddFarmPage> {
                       const SizedBox(height: 30),
                       UkulimaBoraTextFormField(
                         hintStyle: TextStyle(
-                            color: UkulimaBoraCommonColors.appBackgroudColor),
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
                         icon: Icon(
                           Icons.search,
                           size: 20,
@@ -54,13 +54,13 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         ),
                         obscuretext: false,
                         style: TextStyle(
-                            color: UkulimaBoraCommonColors.appBackgroudColor),
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
                         controller: farmLocationController,
                         hinttext: UkulimaBoraCommonText.placeText,
-                        fillcolor: null,
+                        fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                         keyboardtype: TextInputType.name,
-                        validator: (String val) {
-                          if (val.isEmpty) {
+                        validator: (String? val) {
+                          if (val!.isEmpty) {
                             return UkulimaBoraCommonText.noPlaceMessage;
                           }
                           return null;
@@ -68,10 +68,10 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         onchanged: (String val) {
                           location = val;
                         },
-                        onsaved: (String val) {
-                          location = val;
+                        onsaved: (String? val) {
+                          location = val!;
                           return;
-                        },
+                        }, maximumLength: 15,
                       ),
                       const SizedBox(height: 30),
                       UkulimaBoraTextFormField(
@@ -83,22 +83,22 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         ),
                         obscuretext: false,
                         style: TextStyle(
-                            color: UkulimaBoraCommonColors.appBackgroudColor),
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
                         hintStyle: TextStyle(
-                            color: UkulimaBoraCommonColors.appBackgroudColor),
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
                         maximumLength: 15,
                         controller: farmDescriptionTextController,
                         hinttext: UkulimaBoraCommonText.descriptionText,
-                        fillcolor: null,
+                        fillcolor: UkulimaBoraCommonColors.appLightGreenColor,// null,
                         keyboardtype: TextInputType.name,
-                        validator: (String val) {
+                        validator: (String? val) {
                           return null;
                         },
                         onchanged: (String val) {
                           description = val;
                         },
-                        onsaved: (String val) {
-                          description = val;
+                        onsaved: (String? val) {
+                          description = val!;
                           return;
                         },
                       ),
@@ -108,17 +108,17 @@ class _AddFarmPageState extends State<AddFarmPage> {
                             hint: Text(UkulimaBoraCommonText.cropSelectionText,
                                 style: TextStyle(
                                     color: UkulimaBoraCommonColors
-                                        .appBackgroudColor)),
+                                        .appBackgroudColor,),),
                             dropdownColor:
                                 UkulimaBoraCommonColors.appGreenColor,
                             style: TextStyle(
                                 color:
-                                    UkulimaBoraCommonColors.appBackgroudColor),
+                                    UkulimaBoraCommonColors.appBackgroudColor,),
                             isExpanded: true,
                             value: crop,
-                            onChanged: (String newValue) {
+                            onChanged: (String? newValue) {
                               setState(() {
-                                crop = newValue;
+                                crop = newValue!;
                               });
                             },
                             items: crops.map((String valueItem) {
@@ -126,15 +126,15 @@ class _AddFarmPageState extends State<AddFarmPage> {
                                 value: valueItem,
                                 child: Text(valueItem),
                               );
-                            }).toList()),
+                            }).toList(),),
                       ),
                       const SizedBox(height: 50),
                       CommonAppButton(
                         buttonAction: () async {
-                          if (!_addFarmFormKey.currentState.validate()) {
+                          if (!_addFarmFormKey.currentState!.validate()) {
                             return;
                           }
-                          _addFarmFormKey.currentState.save();
+                          _addFarmFormKey.currentState!.save();
                           getLatLongFromAddress();
 
                           await Navigator.of(context).pushNamed(homeRoute);
@@ -148,13 +148,13 @@ class _AddFarmPageState extends State<AddFarmPage> {
                         UkulimaBoraCommonText.supportText,
                         style: TextStyle(
                             color: UkulimaBoraCommonColors.appBackgroudColor
-                                .withOpacity(0.3)),
+                                .withOpacity(0.3),),
                       ),
                     ],
-                  )),
+                  ),),
             ),
           ],
-        ));
+        ),);
   }
 
   Future<LatLng> getLatLongFromAddress() async {
@@ -163,11 +163,12 @@ class _AddFarmPageState extends State<AddFarmPage> {
 
     final Location place = placemarks[0];
 
-    final double farmLatitude = place.latitude.toDouble();
-    final double farmLongitude = place.longitude.toDouble();
+    final double farmLatitude = place.latitude;
+    final double farmLongitude = place.longitude;
 
     final LatLng farmLocation = LatLng(farmLatitude, farmLongitude);
 
     return farmLocation;
   }
 }
+//lat=-1.2921&lon=36.8219

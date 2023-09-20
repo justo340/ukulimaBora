@@ -7,7 +7,7 @@ import 'package:ukulimabora/Shared/Common/keys.dart';
 class WeatherForcast {
   Future<Map<String, dynamic>> getWeather() async {
     final Uri url = Uri.parse(
-        'http://api.openweathermap.org/data/2.5/onecall?lat=-1.2921&lon=36.8219&units=metric&appid=$openWeatherKey');
+        'http://api.openweathermap.org/data/2.5/onecall?lat=-1.2921&lon=36.8219&units=metric&appid=$openWeatherKey',);
 
     final http.Response response = await http.get(url);
 

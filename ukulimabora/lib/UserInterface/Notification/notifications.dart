@@ -57,13 +57,13 @@ class _NotificationsCardState extends State<NotificationsCard> {
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: UkulimaBoraCommonColors.appBackgroudColor)),
+                      color: UkulimaBoraCommonColors.appBackgroudColor,),),
               UkulimaBoraDivider.normaldivider,
               const Text('data',
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-                  ))
+                  ),)
             ],
           ),
         ),

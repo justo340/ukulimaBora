@@ -3,10 +3,10 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class HarvestSuggestionCard extends StatelessWidget {
   const HarvestSuggestionCard(
-      {@required this.bestWeather,
-      @required this.dayTemparature,
-      @required this.humdityAmount,
-      @required this.date});
+      {required this.bestWeather,
+      required this.dayTemparature,
+      required this.humdityAmount,
+      required this.date,});
 
   final String bestWeather;
   final dynamic dayTemparature;
@@ -31,13 +31,13 @@ class HarvestSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                   UkulimaBoraDivider.normaldivider,
                   Text('Average temp : $dayTemparature °C',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
-                          color: UkulimaBoraCommonColors.appBackgroudColor))
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),)
                 ],
               ),
               UkulimaBoraDivider.normaldivider,
@@ -48,13 +48,13 @@ class HarvestSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appVeryBlackColor)),
+                          color: UkulimaBoraCommonColors.appVeryBlackColor,),),
                   UkulimaBoraDivider.normaldivider,
                   Text('Average humidity : $humdityAmount %',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor))
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),)
                 ],
               ),
               const SizedBox(height: 10)

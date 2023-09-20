@@ -16,12 +16,12 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   final GlobalKey<FormState> _registrationFormKey = GlobalKey<FormState>();
   FirebaseAuthException firebaseAuthException = FirebaseAuthException(code: '');
-  String firstName;
-  String lastName;
-  String phoneNumber;
-  String pin1;
-  String pin2;
-  String email;
+  String? firstName;
+  String? lastName;
+  String? phoneNumber;
+  String? pin1;
+  String? pin2;
+  String? email;
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
@@ -37,12 +37,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const RegistrationHeader(),
+               RegistrationHeader(),
               Padding(
-                padding: const EdgeInsets.only(left: 12),
+                padding: UkulimaBoraCustomSpaces.normalMarginSpacing,//const EdgeInsets.only(left: 12 ),
                 child: SizedBox(
                   height: 20,
                   child: RichText(
@@ -51,7 +52,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           text: UkulimaBoraCommonText.alreadyAMemberText,
                           style: TextStyle(
                               fontSize: 16,
-                              color: UkulimaBoraCommonColors.appBlackColor)),
+                              color: UkulimaBoraCommonColors.appBlackColor,),),
                       const WidgetSpan(child: Text('')),
                       TextSpan(
                           recognizer: TapGestureRecognizer()
@@ -61,14 +62,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           text: UkulimaBoraCommonText.loginText,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: UkulimaBoraCommonColors.appBlueColor))
-                    ]),
+                              color: UkulimaBoraCommonColors.appBlueColor,),),
+                    ],),
                   ),
                 ),
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(
-                    12, 0, 12, MediaQuery.of(context).viewInsets.bottom),
+                    12, 0, 12, MediaQuery.of(context).viewInsets.bottom,),
                 height: 400,
                 color: UkulimaBoraCommonColors.appBackgroudColor,
                 child: Scrollbar(
@@ -84,25 +85,28 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 maximumLength: 15,
                                 controller: firstNameController,
                                 hinttext: UkulimaBoraCommonText.firstNameText,
-                                fillcolor: null,
+                                fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                                 keyboardtype: TextInputType.name,
-                                validator: (String val) {
-                                  if (val.isEmpty) {
+                                validator: (String? val) {
+                                  if (val!.isEmpty) {
                                     return UkulimaBoraCommonText
                                         .noFirstNameMessage;
                                   } else if (val.length < 2) {
                                     return UkulimaBoraCommonText
                                         .shortFirstNameMessage;
                                   }
-                                  return null;
+                                return null;
                                 },
                                 onchanged: (String val) {
                                   firstName = val;
                                 },
-                                onsaved: (String val) {
-                                  firstName = val;
+                                onsaved: (String? val){
+                                  firstName = val!;
                                   return;
-                                },
+                                }, hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
+                             style:TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
                               ),
                               const SizedBox(height: 20),
                               UkulimaBoraTextFormField(
@@ -111,10 +115,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 maximumLength: 15,
                                 controller: lastNameController,
                                 hinttext: UkulimaBoraCommonText.lastNameText,
-                                fillcolor: null,
+                                fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                                 keyboardtype: TextInputType.name,
-                                validator: (String val) {
-                                  if (val.isEmpty) {
+                                validator: (String? val) {
+                                  if (val!.isEmpty) {
                                     return UkulimaBoraCommonText
                                         .noLastNameMessage;
                                   } else if (val.length < 2) {
@@ -126,10 +130,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 onchanged: (String val) {
                                   lastName = val;
                                 },
-                                onsaved: (String val) {
-                                  lastName = val;
+                                onsaved: (String? val) {
+                                  lastName = val!;
                                   return;
-                                },
+                                }, hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
+                             style:TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
                               ),
                               const SizedBox(height: 20),
                               UkulimaBoraTextFormField(
@@ -137,10 +144,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 obscuretext: false,
                                 controller: emailController,
                                 hinttext: UkulimaBoraCommonText.emailText,
-                                fillcolor: null,
+                                fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                                 keyboardtype: TextInputType.emailAddress,
-                                validator: (String val) {
-                                  if (val.isEmpty) {
+                                validator: (String? val) {
+                                  if (val!.isEmpty) {
                                     return UkulimaBoraCommonText.noEmailMessage;
                                   } else if (emailRegexp.hasMatch(val) ==
                                       false) {
@@ -151,10 +158,14 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 onchanged: (String val) {
                                   email = val;
                                 },
-                                onsaved: (String val) {
-                                  email = val;
+                                onsaved: (String? val) {
+                                  email = val!;
                                   return;
-                                },
+                                }, hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
+                             style:TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
+                 maximumLength: 40,
                               ),
                               const SizedBox(height: 20),
                               UkulimaBoraTextFormField(
@@ -163,10 +174,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 maximumLength: 10,
                                 controller: phoneNumberController,
                                 hinttext: UkulimaBoraCommonText.phoneText,
-                                fillcolor: null,
+                                fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                                 keyboardtype: TextInputType.phone,
-                                validator: (String val) {
-                                  if (val.isEmpty) {
+                                validator: (String? val) {
+                                  if (val!.isEmpty) {
                                     return UkulimaBoraCommonText.noPhoneMessage;
                                   } else if (val.length < 9) {
                                     return UkulimaBoraCommonText
@@ -180,10 +191,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 onchanged: (String val) {
                                   phoneNumber = val;
                                 },
-                                onsaved: (String val) {
-                                  phoneNumber = val;
+                                onsaved: (String? val) {
+                                  phoneNumber = val!;
                                   return;
-                                },
+                                },hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
+                             style:TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
                               ),
                               const SizedBox(height: 20),
                               UkulimaBoraTextFormField(
@@ -192,10 +206,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 maximumLength: 6,
                                 controller: pin1Controller,
                                 hinttext: UkulimaBoraCommonText.pinText,
-                                fillcolor: null,
+                                fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                                 keyboardtype: TextInputType.phone,
-                                validator: (String val) {
-                                  if (val.isEmpty) {
+                                validator: (String? val) {
+                                  if (val!.isEmpty) {
                                     return UkulimaBoraCommonText.noPinMessage;
                                   } else if (val.length != 6) {
                                     return UkulimaBoraCommonText
@@ -203,13 +217,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   }
                                   return null;
                                 },
-                                onchanged: (String val) {
-                                  pin1 = val;
+                                onchanged: (String? val) {
+                                  pin1 = val!;
                                 },
-                                onsaved: (String val) {
-                                  pin1 = val;
+                                onsaved: (String? val) {
+                                  pin1 = val!;
                                   return;
-                                },
+                                },hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),
+                             style:TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
                               ),
                               const SizedBox(height: 20),
                               UkulimaBoraTextFormField(
@@ -219,10 +236,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 controller: pin2Controller,
                                 hinttext:
                                     UkulimaBoraCommonText.pinConfirmationText,
-                                fillcolor: null,
+                                fillcolor: UkulimaBoraCommonColors.appLightGreenColor,//null,
                                 keyboardtype: TextInputType.phone,
-                                validator: (String val) {
-                                  if (val.isEmpty) {
+                                validator: (String? val) {
+                                  if (val!.isEmpty) {
                                     return UkulimaBoraCommonText.noPinMessage;
                                   } else if (val.length != 6) {
                                     return UkulimaBoraCommonText
@@ -236,29 +253,32 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 onchanged: (String val) {
                                   pin2 = val;
                                 },
-                                onsaved: (String val) {
-                                  pin2 = val;
+                                onsaved: (String? val) {
+                                  pin2 = val!;
                                   return;
-                                },
+                                },hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,), 
+                             style:TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
                               ),
                               const SizedBox(height: 20),
                               CommonAppButton(
                                 buttonAction: () async {
-                                  if (!_registrationFormKey.currentState
+                                  if (!_registrationFormKey.currentState!
                                       .validate()) {
                                     return;
                                   }
-                                  _registrationFormKey.currentState.save();
+                                  _registrationFormKey.currentState!.save();
 
                                   context.read<AuthenticationService>().signUp(
                                       email: emailController.text,
-                                      password: pin2Controller.text);
+                                      password: pin2Controller.text,);
 
                                   if (firebaseAuthException.message != null) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
                                             content: Text(UkulimaBoraCommonText
-                                                .registerErrorText)));
+                                                .registerErrorText,),),);
 
                                     await Navigator.of(context)
                                         .pushNamed(registrationRoute);
@@ -274,22 +294,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     UkulimaBoraCommonColors.appWhiteColor,
                               )
                             ],
-                          )),
+                          ),),
                     ],
                   ),
                 ),
               ),
             ],
           ),
-        ));
+        ),);
   }
 }
 
 class RegistrationHeader extends StatelessWidget {
-  const RegistrationHeader({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -299,16 +315,16 @@ class RegistrationHeader extends StatelessWidget {
               end: Alignment.topLeft,
               colors: <Color>[
                 UkulimaBoraCommonColors.appLightGreenColor,
-                UkulimaBoraCommonColors.appVeryBlackColor
-              ]),
+                UkulimaBoraCommonColors.appVeryBlackColor,
+              ],),
           borderRadius:
               const BorderRadius.only(bottomRight: Radius.circular(150)),
           boxShadow: <BoxShadow>[
             BoxShadow(
                 blurRadius: 5,
                 spreadRadius: 3,
-                color: UkulimaBoraCommonColors.appBlackColor)
-          ]),
+                color: UkulimaBoraCommonColors.appBlackColor,)
+          ],),
       height: 300,
       child: Stack(
         children: <Widget>[
@@ -342,7 +358,7 @@ class RegistrationHeader extends StatelessWidget {
                         color: UkulimaBoraCommonColors.appBackgroudColor,
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
-                      ))
+                      ),),
                 ],
               ),
             ),

@@ -56,7 +56,7 @@ class _HarvestingSuggestionState extends State<HarvestingSuggestion> {
 
                               final DateTime date =
                                   DateTime.fromMillisecondsSinceEpoch(
-                                      timeStamp * 1000);
+                                      timeStamp * 1000,);
 
                               final String formatedDate =
                                   DateFormat('EEEE MMM-dd').format(date);
@@ -95,10 +95,10 @@ class _HarvestingSuggestionState extends State<HarvestingSuggestion> {
                                     date: formatedDate,
                                     dayTemparature: dayTemparature,
                                     bestWeather: bestWeather,
-                                    humdityAmount: humdityAmount);
+                                    humdityAmount: humdityAmount,);
                               }
                               return Container();
-                            }),
+                            },),
                       ),
                     )
                   ],
@@ -111,7 +111,7 @@ class _HarvestingSuggestionState extends State<HarvestingSuggestion> {
                 );
               }
               return UkulimaBoraLoadingIndicator();
-            }),
+            },),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ukulimabora/Shared/Common/constants.dart';
 import 'package:ukulimabora/Shared/Widgets/error_page.dart';
 import 'package:ukulimabora/UserInterface/Location/Farm/add_farm_page.dart';
@@ -42,16 +41,16 @@ class RouteGenerator {
         return MaterialPageRoute<dynamic>(builder: (_) => PlantingSuggestion());
       case fertilizerRoute:
         return MaterialPageRoute<dynamic>(
-            builder: (_) => FertilizerSuggestion());
+            builder: (_) => FertilizerSuggestion(),);
       case irrigationRoute:
         return MaterialPageRoute<dynamic>(
-            builder: (_) => IrrigationSuggestion());
+            builder: (_) => IrrigationSuggestion(),);
       case pesticideRoute:
         return MaterialPageRoute<dynamic>(
-            builder: (_) => PesticideSuggestion());
+            builder: (_) => PesticideSuggestion(),);
       case harvestRoute:
         return MaterialPageRoute<dynamic>(
-            builder: (_) => HarvestingSuggestion());
+            builder: (_) => HarvestingSuggestion(),);
       case weatherRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => WeatherPage());
       default:
@@ -67,5 +66,5 @@ Route<dynamic> _errorRoute() {
       errorMessage: UkulimaBoraCommonText.genericErrorMessage,
       errorTitle: UkulimaBoraCommonText.genericErrorTitle,
     );
-  });
+  },);
 }

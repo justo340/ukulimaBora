@@ -14,12 +14,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
+  final GlobalKey <FormState>_loginFormKey = GlobalKey<FormState>(debugLabel: 
+  'loginKey',);
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   FirebaseAuthException firebaseAuthException = FirebaseAuthException(code: '');
-  String email;
-  String pin;
+  late String email;
+  late String pin;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,22 +32,22 @@ class _LoginPageState extends State<LoginPage> {
                 end: Alignment.topLeft,
                 colors: <Color>[
                   UkulimaBoraCommonColors.appLightGreenColor,
-                  UkulimaBoraCommonColors.appVeryBlackColor
-                ]),
+                  UkulimaBoraCommonColors.appVeryBlackColor,
+                ],),
           ),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: ListView(
             children: <Widget>[
-              const LoginHeader(),
+             LoginHeader(),
               Container(
                 padding: EdgeInsets.fromLTRB(
-                    12, 0, 12, MediaQuery.of(context).viewInsets.bottom),
+                    12, 0, 12, MediaQuery.of(context).viewInsets.bottom,),
                 decoration: BoxDecoration(
                     color: UkulimaBoraCommonColors.appBackgroudColor,
                     borderRadius: const BorderRadius.only(
                         topRight: Radius.circular(50),
-                        topLeft: Radius.circular(50))),
+                        topLeft: Radius.circular(50),),),
                 height: MediaQuery.of(context).size.height / 1.7,
                 child: Scrollbar(
                   child: ListView(shrinkWrap: true, children: <Widget>[
@@ -59,23 +60,26 @@ class _LoginPageState extends State<LoginPage> {
                             obscuretext: false,
                             controller: emailController,
                             hinttext: UkulimaBoraCommonText.emailText,
-                            fillcolor: null,
+                            fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
                             keyboardtype: TextInputType.emailAddress,
-                            validator: (String val) {
-                              if (val.isEmpty) {
+                            validator: (String? val) {
+                              if (val!.isEmpty) {
                                 return UkulimaBoraCommonText.noEmailMessage;
                               } else if (emailRegexp.hasMatch(val) == false) {
                                 return UkulimaBoraCommonText.noEmailMessage;
                               }
-                              return null;
+                              return null;// 'this is what happens';//null;
                             },
-                            onchanged: (String val) {
-                              email = val;
+                            onchanged: (String? val) {
+                              email = val!;
                             },
-                            onsaved: (String val) {
-                              email = val;
+                            onsaved: (String? val) {
+                              email = val!;
                               return;
-                            },
+                            }, hintStyle:TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,), 
+                            maximumLength: 40, style: TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),
                           ),
                           const SizedBox(height: 20),
                           UkulimaBoraTextFormField(
@@ -84,10 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                             maximumLength: 6,
                             controller: passwordController,
                             hinttext: UkulimaBoraCommonText.pinText,
-                            fillcolor: null,
+                            fillcolor: UkulimaBoraCommonColors.appLightGreenColor,
+                            // null,
                             keyboardtype: TextInputType.phone,
-                            validator: (String val) {
-                              if (val.isEmpty) {
+                            validator: (String? val) {
+                              if (val!.isEmpty) {
                                 return UkulimaBoraCommonText.noPinMessage;
                               } else if (val.length != 6) {
                                 return UkulimaBoraCommonText.invalidPinMessage;
@@ -97,22 +102,26 @@ class _LoginPageState extends State<LoginPage> {
                             onchanged: (String val) {
                               pin = val;
                             },
-                            onsaved: (String val) {
-                              pin = val;
+                            onsaved: (String? val) {
+                              pin = val!;
                               return;
-                            },
+                            }, hintStyle: TextStyle(
+                            color: UkulimaBoraCommonColors.appBackgroudColor,),//null, 
+                            style: TextStyle(
+                color: UkulimaBoraCommonColors.appWhiteColor, fontSize: 18,),//null,
                           ),
                           const SizedBox(height: 20),
                           CommonAppButton(
                             buttonAction: () async {
-                              if (!_loginFormKey.currentState.validate()) {
+                              if (!_loginFormKey.currentState!.validate()) {
+                                print('yes');
                                 return;
                               }
-                              _loginFormKey.currentState.save();
+                              _loginFormKey.currentState!.save();
 
                               context.read<AuthenticationService>().signIn(
                                   email: emailController.text,
-                                  password: passwordController.text);
+                                  password: passwordController.text,);
 
                               if (firebaseAuthException.message == null) {
                                 await Navigator.of(context)
@@ -121,7 +130,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                         content: Text(
-                                            UkulimaBoraCommonText.noUserText)));
+                                            UkulimaBoraCommonText.noUserText,)
+                                            ,),);
 
                                 await Navigator.of(context)
                                     .pushNamed(loginRoute);
@@ -141,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: UkulimaBoraCommonColors
-                                            .appBlackColor)),
+                                            .appBlackColor,),),
                                 const WidgetSpan(child: Text('')),
                                 TextSpan(
                                     recognizer: TapGestureRecognizer()
@@ -153,24 +163,21 @@ class _LoginPageState extends State<LoginPage> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: UkulimaBoraCommonColors
-                                            .appBlueColor))
-                              ]),
+                                            .appBlueColor,),)
+                              ],),
                             ),
                           ),
-                        ]))
-                  ]),
+                        ],),)
+                  ],),
                 ),
               )
             ],
           ),
-        ));
+        ),);
   }
 }
 
 class LoginHeader extends StatelessWidget {
-  const LoginHeader({
-    Key key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +216,7 @@ class LoginHeader extends StatelessWidget {
                         color: UkulimaBoraCommonColors.appBackgroudColor,
                         fontSize: 19,
                         fontWeight: FontWeight.w500,
-                      ))
+                      ),)
                 ],
               ),
             ),

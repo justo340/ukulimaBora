@@ -19,12 +19,12 @@ class _MapPageState extends State<MapPage> {
       _markers.add(Marker(
           markerId: const MarkerId('farm_id'),
           position: cameraPosition,
-          infoWindow: const InfoWindow(title: 'My Farm')));
+          infoWindow: const InfoWindow(title: 'My Farm'),),);
     });
   }
 
-  TextEditingController textController;
-  String place;
+  TextEditingController? textController;
+  String? place;
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,9 @@ class _MapPageState extends State<MapPage> {
                 onMapCreated: _onMapCreated,
                 markers: _markers,
                 initialCameraPosition: CameraPosition(
-                    target: LatLng(applicationBloc.currentLocation.latitude,
-                        applicationBloc.currentLocation.longitude),
+                    target: LatLng(applicationBloc.currentLocation!.latitude,
+                        applicationBloc.currentLocation!.longitude,),
                     zoom: 17,
-                    tilt: 0.2)));
+                    tilt: 0.2,),),);
   }
 }

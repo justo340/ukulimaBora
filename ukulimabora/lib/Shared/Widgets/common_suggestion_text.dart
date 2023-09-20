@@ -20,8 +20,8 @@ class SuggestedDayText extends StatelessWidget {
             style: TextStyle(
                 fontSize: 16,
                 color:
-                    UkulimaBoraCommonColors.appBackgroudColor.withOpacity(0.3)),
-          )
+                    UkulimaBoraCommonColors.appBackgroudColor.withOpacity(0.3),)
+          ,)
         ],
       ),
     );
@@ -46,7 +46,8 @@ class DailyForecastText extends StatelessWidget {
             style: TextStyle(
                 fontSize: 16,
                 color:
-                    UkulimaBoraCommonColors.appBackgroudColor.withOpacity(0.3)),
+                    UkulimaBoraCommonColors.appBackgroudColor.withOpacity(0.3),
+                    ),
           )
         ],
       ),

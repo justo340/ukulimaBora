@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
             UkulimaBoraCommonColors.appLightGreenColor,
             // Colors.blueGrey.shade600,
             UkulimaBoraCommonColors.appVeryBlackColor
-          ])),
+          ],),),
       child: Scaffold(
           backgroundColor: Colors.transparent,
           body: ListView(
@@ -50,8 +50,8 @@ class _WelcomePageState extends State<WelcomePage> {
                                     UkulimaBoraCommonColors.appBackgroudColor,
                                   ],
                                   begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft)),
-                        )),
+                                  end: Alignment.bottomLeft,),),
+                        ),),
                     Positioned(
                         top: 180,
                         right: 50,
@@ -67,8 +67,8 @@ class _WelcomePageState extends State<WelcomePage> {
                                     UkulimaBoraCommonColors.appBackgroudColor,
                                   ],
                                   begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft)),
-                        )),
+                                  end: Alignment.bottomLeft,),),
+                        ),),
                     Positioned(
                         top: 170,
                         right: 150,
@@ -83,9 +83,9 @@ class _WelcomePageState extends State<WelcomePage> {
                                     UkulimaBoraCommonColors.appBackgroudColor,
                                   ],
                                   begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight),
-                              borderRadius: BorderRadius.circular(50)),
-                        )),
+                                  end: Alignment.bottomRight,),
+                              borderRadius: BorderRadius.circular(50),),
+                        ),),
                     Positioned(
                         top: 220,
                         right: 100,
@@ -93,7 +93,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           height: 150,
                           width: 150,
                           child: Image.asset('assets/images/growth.png'),
-                        )),
+                        ),),
                   ],
                 ),
               ),
@@ -105,7 +105,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     style: TextStyle(
                         color: UkulimaBoraCommonColors.appBlackColor,
                         fontSize: 22,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,),
                   ),
                 ),
               ),
@@ -122,7 +122,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 buttonText: UkulimaBoraCommonText.loginText,
               )
             ],
-          )),
+          ),),
     );
   }
 }

@@ -71,12 +71,12 @@ class UkulimaBoraCommonText {
 
 class UkulimaBoraCommonColors {
   static MaterialColor appGreenColor = Colors.green;
-  static Color appBackgroudColor = Colors.grey[200];
+  static Color appBackgroudColor = Colors.grey[200]!;
   static Color appWhiteColor = Colors.white;
   static Color appBlackColor = Colors.black38;
   static Color appBlueColor = Colors.blue;
   static Color appRedColor = Colors.red;
-  static Color appgreyColor = Colors.grey[400];
+  static Color appgreyColor = Colors.grey[400]!;
   static Color appVeryBlackColor = Colors.blueGrey.shade900;
   static Color appLightGreenColor = Colors.green.shade400;
 }
@@ -115,7 +115,7 @@ class UkulimaBoraCrops {
 }
 
 RegExp emailRegexp = RegExp(
-    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",);
 
 class OptimalConditions {
   static List<dynamic> optimalDayPlantingTemparatures = <dynamic>[

@@ -36,13 +36,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: const Icon(Icons.home),
-              label: UkulimaBoraCommonText.homeText),
+              label: UkulimaBoraCommonText.homeText,),
           BottomNavigationBarItem(
               icon: const Icon(Icons.notifications),
-              label: UkulimaBoraCommonText.notificationText),
+              label: UkulimaBoraCommonText.notificationText,),
           BottomNavigationBarItem(
               icon: const Icon(Icons.assignment),
-              label: UkulimaBoraCommonText.taskText)
+              label: UkulimaBoraCommonText.taskText,)
         ],
         currentIndex: selectedIndex,
         onTap: bottomNavigatorFunction,

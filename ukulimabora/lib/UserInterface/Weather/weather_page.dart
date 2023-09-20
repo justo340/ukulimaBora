@@ -70,7 +70,7 @@ class _WeatherPageState extends State<WeatherPage> {
 
                           final DateTime date =
                               DateTime.fromMillisecondsSinceEpoch(
-                                  timeStamp * 1000);
+                                  timeStamp * 1000,);
 
                           final String formatedDate =
                               DateFormat('EEEE MMM-dd').format(date);
@@ -96,7 +96,7 @@ class _WeatherPageState extends State<WeatherPage> {
                               windSpeed: windSpeed,
                               weatherForcast: weatherForcast,
                               maxTemparatures: maxTemparatures,
-                              minTemparatures: minTemparatures);
+                              minTemparatures: minTemparatures,);
                         },
                       ),
                     ),
@@ -111,7 +111,7 @@ class _WeatherPageState extends State<WeatherPage> {
               );
             }
             return UkulimaBoraLoadingIndicator();
-          }),
+          },),
     );
   }
 }
@@ -119,10 +119,10 @@ class _WeatherPageState extends State<WeatherPage> {
 // ignore: must_be_immutable
 class CurrentWeatherInfoCard extends StatefulWidget {
   CurrentWeatherInfoCard({
-    @required this.weather,
-    @required this.temparature,
-    @required this.longitude,
-    @required this.latitude,
+    required this.weather,
+    required this.temparature,
+    required this.longitude,
+    required this.latitude,
   });
 
   final List<dynamic> weather;
@@ -156,7 +156,7 @@ class _CurrentWeatherInfoCardState extends State<CurrentWeatherInfoCard> {
                 child: Text(widget.location,
                     style: TextStyle(
                         fontSize: 25,
-                        color: UkulimaBoraCommonColors.appBackgroudColor)),
+                        color: UkulimaBoraCommonColors.appBackgroudColor,),),
               ),
               Container(
                   padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
@@ -164,17 +164,17 @@ class _CurrentWeatherInfoCardState extends State<CurrentWeatherInfoCard> {
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appBackgroudColor))),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),),
               Container(
                   padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
                   child: Text(widget.weather[0]['description'].toString(),
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)))
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),)
             ],
-          ));
-    });
+          ),);
+    },);
   }
 
   Future<String> _getAddressFromLatLng() async {
@@ -189,7 +189,8 @@ class _CurrentWeatherInfoCardState extends State<CurrentWeatherInfoCard> {
 
       return location;
     } catch (e) {
-      return e.message.toString();
+      return e.toString();
+      
     }
   }
 }

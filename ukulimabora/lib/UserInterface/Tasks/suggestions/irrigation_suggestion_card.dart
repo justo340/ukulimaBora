@@ -3,9 +3,9 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class IrrigationSuggestionCard extends StatelessWidget {
   const IrrigationSuggestionCard({
-    @required this.date,
-    @required this.dayTemparature,
-    @required this.bestWeather,
+    required this.date,
+    required this.dayTemparature,
+    required this.bestWeather,
   });
   final String date;
   final dynamic dayTemparature;
@@ -30,20 +30,20 @@ class IrrigationSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                   UkulimaBoraDivider.normaldivider,
                   Text(bestWeather,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appVeryBlackColor))
+                          color: UkulimaBoraCommonColors.appVeryBlackColor,),)
                 ],
               ),
               Text('Average Temp :$dayTemparature °C',
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
-                      color: UkulimaBoraCommonColors.appBackgroudColor)),
+                      color: UkulimaBoraCommonColors.appBackgroudColor,),),
             ],
           ),
         ),

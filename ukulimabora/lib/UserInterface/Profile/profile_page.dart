@@ -42,9 +42,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   Navigator.of(context).pushNamed(loginRoute);
                 },
                 buttonColor: UkulimaBoraCommonColors.appGreenColor,
-                textColor: UkulimaBoraCommonColors.appBackgroudColor)
+                textColor: UkulimaBoraCommonColors.appBackgroudColor,)
           ],
-        ));
+        ),);
   }
 }
 
@@ -59,13 +59,13 @@ class ProfileAvatar extends StatelessWidget {
           child: const Icon(
             Icons.person,
             size: 50,
-          )),
+          ),),
     );
   }
 }
 
 class ProfileSubHeaders extends StatelessWidget {
-  const ProfileSubHeaders({@required this.title});
+  const ProfileSubHeaders({required this.title});
 
   final String title;
   @override
@@ -77,7 +77,7 @@ class ProfileSubHeaders extends StatelessWidget {
             fontSize: 16,
             fontWeight: FontWeight.w400,
             color: UkulimaBoraCommonColors.appBackgroudColor,
-          )),
+          ),),
     );
   }
 }
@@ -99,7 +99,7 @@ class PersonalInfoCard extends StatelessWidget {
                 colors: <Color>[
                   Colors.green.shade500,
                   UkulimaBoraCommonColors.appVeryBlackColor
-                ]),
+                ],),
           ),
           padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
           child: Column(
@@ -126,8 +126,8 @@ class PersonalInfoCard extends StatelessWidget {
 
 class ProfileInfoData extends StatelessWidget {
   const ProfileInfoData({
-    @required this.data,
-    @required this.icon,
+    required this.data,
+    required this.icon,
   });
 
   final String data;
@@ -152,7 +152,7 @@ class ProfileInfoData extends StatelessWidget {
             style: TextStyle(
                 color: UkulimaBoraCommonColors.appBackgroudColor,
                 fontSize: 16,
-                fontWeight: FontWeight.w400),
+                fontWeight: FontWeight.w400,),
           ),
         ],
       ),
@@ -177,7 +177,7 @@ class UkulimaBoraInfoCard extends StatelessWidget {
                       colors: <Color>[
                         Colors.green.shade500,
                         UkulimaBoraCommonColors.appVeryBlackColor
-                      ]),
+                      ],),
                 ),
                 padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
                 child: Column(
@@ -193,6 +193,6 @@ class UkulimaBoraInfoCard extends StatelessWidget {
                       icon: Icons.security_outlined,
                     ),
                   ],
-                ))));
+                ),),),);
   }
 }

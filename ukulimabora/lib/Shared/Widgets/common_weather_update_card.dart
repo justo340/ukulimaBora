@@ -3,11 +3,11 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class WeatherCard extends StatelessWidget {
   const WeatherCard(
-      {@required this.weatherForcast,
-      @required this.date,
-      @required this.windSpeed,
-      @required this.maxTemparatures,
-      @required this.minTemparatures});
+      {required this.weatherForcast,
+      required this.date,
+      required this.windSpeed,
+      required this.maxTemparatures,
+      required this.minTemparatures,});
 
   final List<dynamic> weatherForcast;
   final dynamic maxTemparatures;
@@ -33,12 +33,12 @@ class WeatherCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                   Text('Min temp : $minTemparatures °C',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                 ],
               ),
               UkulimaBoraDivider.normaldivider,
@@ -49,12 +49,12 @@ class WeatherCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appVeryBlackColor)),
+                          color: UkulimaBoraCommonColors.appVeryBlackColor,),),
                   Text('Wind speed :$windSpeed m/s',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                 ],
               ),
               const SizedBox(
@@ -67,7 +67,7 @@ class WeatherCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                 ],
               )
             ],

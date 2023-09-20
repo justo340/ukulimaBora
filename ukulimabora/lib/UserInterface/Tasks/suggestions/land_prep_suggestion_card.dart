@@ -3,9 +3,9 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class LandPrepSuggestionCard extends StatelessWidget {
   const LandPrepSuggestionCard(
-      {@required this.bestWeather,
-      @required this.dayTemparature,
-      @required this.date});
+      {required this.bestWeather,
+      required this.dayTemparature,
+      required this.date,});
 
   final String bestWeather;
   final dynamic dayTemparature;
@@ -29,13 +29,13 @@ class LandPrepSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                   UkulimaBoraDivider.normaldivider,
                   Text('Average Temp : $dayTemparature °C',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
-                          color: UkulimaBoraCommonColors.appBackgroudColor))
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),)
                 ],
               ),
               UkulimaBoraDivider.normaldivider,
@@ -46,8 +46,8 @@ class LandPrepSuggestionCard extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
-                            color: UkulimaBoraCommonColors.appVeryBlackColor))
-                  ])
+                            color: UkulimaBoraCommonColors.appVeryBlackColor,),)
+                  ],)
             ],
           ),
         ),
