@@ -56,7 +56,7 @@ class _PlantingSuggestionState extends State<PlantingSuggestion> {
 
                             final DateTime date =
                                 DateTime.fromMillisecondsSinceEpoch(
-                                    timeStamp * 1000);
+                                    timeStamp * 1000,);
 
                             final String formatedDate =
                                 DateFormat('EEEE MMM-dd').format(date);
@@ -92,10 +92,10 @@ class _PlantingSuggestionState extends State<PlantingSuggestion> {
                               return PlantingSuggestionCard(
                                   date: formatedDate,
                                   dayTemparature: dayTemparature,
-                                  bestWeather: bestWeather);
+                                  bestWeather: bestWeather,);
                             }
                             return Container();
-                          }),
+                          },),
                     ),
                   )
                 ],
@@ -108,7 +108,7 @@ class _PlantingSuggestionState extends State<PlantingSuggestion> {
               );
             }
             return UkulimaBoraLoadingIndicator();
-          }),
+          },),
     );
   }
 }

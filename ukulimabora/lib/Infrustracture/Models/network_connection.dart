@@ -17,7 +17,7 @@ class NetworkConnectivity extends StatefulWidget {
 class _NetworkConnectivityState extends State<NetworkConnectivity> {
   ConnectivityResult connectionStatus = ConnectivityResult.none;
   final Connectivity connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> connectivitySubscription;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
     super.dispose();
   }
 
-  Future<void> initConnectivity() async {
+  Future<Object?> initConnectivity() async {
     ConnectivityResult result;
     try {
       result = await connectivity.checkConnectivity();
@@ -43,16 +43,17 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
     }
 
     if (!mounted) {
-      return Future<void>.value();
+      return Future<Object?>.value();
     }
 
     return _updateConnectionStatus(result);
   }
 
-  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
+  Future<Object?> _updateConnectionStatus(ConnectivityResult result) async {
     setState(() {
       connectionStatus = result;
     });
+    return null;
   }
 
   @override
@@ -65,7 +66,7 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
           title: 'UkulimaBora',
           theme: ThemeData(
               primaryColor: UkulimaBoraCommonColors.appBackgroudColor,
-              scaffoldBackgroundColor: UkulimaBoraCommonColors.appWhiteColor),
+              scaffoldBackgroundColor: UkulimaBoraCommonColors.appWhiteColor,),
           home: ErrorPage(
             image: Image.asset(
               'assets/images/nowifi.png',
@@ -75,7 +76,7 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
             ),
             errorTitle: UkulimaBoraCommonText.networkErrorTitle,
             errorMessage: UkulimaBoraCommonText.networkErrorMessage,
-          ));
+          ),);
     }
     return MaterialApp(
         initialRoute: welcomeRoute,
@@ -84,7 +85,7 @@ class _NetworkConnectivityState extends State<NetworkConnectivity> {
         title: 'UkulimaBora',
         theme: ThemeData(
             primaryColor: UkulimaBoraCommonColors.appBackgroudColor,
-            scaffoldBackgroundColor: UkulimaBoraCommonColors.appWhiteColor),
-        home: const AuthenticationWrapper());
+            scaffoldBackgroundColor: UkulimaBoraCommonColors.appWhiteColor,),
+        home: const AuthenticationWrapper(),);
   }
 }

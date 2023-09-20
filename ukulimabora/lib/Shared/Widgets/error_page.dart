@@ -4,9 +4,9 @@ import 'package:ukulimabora/Shared/Widgets/common_app_button.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage(
-      {@required this.errorMessage,
-      @required this.errorTitle,
-      @required this.image});
+      {required this.errorMessage,
+      required this.errorTitle,
+      required this.image,});
 
   final String errorMessage;
   final String errorTitle;
@@ -24,7 +24,7 @@ class ErrorPage extends StatelessWidget {
                 colors: <Color>[
               UkulimaBoraCommonColors.appLightGreenColor,
               UkulimaBoraCommonColors.appVeryBlackColor
-            ])),
+            ],),),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Center(
@@ -45,7 +45,7 @@ class ErrorPage extends StatelessWidget {
                     style: TextStyle(
                         color: UkulimaBoraCommonColors.appVeryBlackColor,
                         fontSize: 22,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w500,),
                   ),
                 ),
                 Container(
@@ -57,7 +57,7 @@ class ErrorPage extends StatelessWidget {
                     style: TextStyle(
                         color: UkulimaBoraCommonColors.appVeryBlackColor,
                         fontSize: 16,
-                        fontWeight: FontWeight.w400),
+                        fontWeight: FontWeight.w400,),
                   ),
                 ),
                 CommonAppButton(
@@ -69,6 +69,6 @@ class ErrorPage extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        ),);
   }
 }

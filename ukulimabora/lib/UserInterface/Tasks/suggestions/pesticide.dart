@@ -56,7 +56,7 @@ class _PesticideSuggestionState extends State<PesticideSuggestion> {
 
                               final DateTime date =
                                   DateTime.fromMillisecondsSinceEpoch(
-                                      timeStamp * 1000);
+                                      timeStamp * 1000,);
 
                               final String formatedDate =
                                   DateFormat('EEEE MMM-dd').format(date);
@@ -80,10 +80,10 @@ class _PesticideSuggestionState extends State<PesticideSuggestion> {
                                 return PesticideSuggestionCard(
                                     date: formatedDate,
                                     windSpeed: windSpeed,
-                                    bestWeather: bestWeather);
+                                    bestWeather: bestWeather,);
                               }
                               return Container();
-                            }),
+                            },),
                       ),
                     )
                   ],
@@ -96,7 +96,7 @@ class _PesticideSuggestionState extends State<PesticideSuggestion> {
                 );
               }
               return UkulimaBoraLoadingIndicator();
-            }),
+            },),
       ),
     );
   }

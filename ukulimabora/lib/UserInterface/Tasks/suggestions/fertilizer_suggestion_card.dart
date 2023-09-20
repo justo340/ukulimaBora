@@ -3,9 +3,9 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class FertilizerSuggestionCard extends StatelessWidget {
   const FertilizerSuggestionCard({
-    @required this.bestWeather,
-    @required this.windSpeed,
-    @required this.date,
+    required this.bestWeather,
+    required this.windSpeed,
+    required this.date,
   });
   final String bestWeather;
   final dynamic windSpeed;
@@ -30,20 +30,20 @@ class FertilizerSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                   UkulimaBoraDivider.normaldivider,
                   Text(bestWeather,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appVeryBlackColor))
+                          color: UkulimaBoraCommonColors.appVeryBlackColor,),)
                 ],
               ),
               Text('wind Speed : $windSpeed m/s',
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: UkulimaBoraCommonColors.appBackgroudColor)),
+                      color: UkulimaBoraCommonColors.appBackgroudColor,),),
             ],
           ),
         ),

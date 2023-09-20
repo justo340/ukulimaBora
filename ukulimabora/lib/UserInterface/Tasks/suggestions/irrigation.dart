@@ -55,7 +55,7 @@ class _IrrigationSuggestionState extends State<IrrigationSuggestion> {
 
                                   final DateTime date =
                                       DateTime.fromMillisecondsSinceEpoch(
-                                          timeStamp * 1000);
+                                          timeStamp * 1000,);
 
                                   final String formatedDate =
                                       DateFormat('EEEE MMM-dd').format(date);
@@ -89,7 +89,7 @@ class _IrrigationSuggestionState extends State<IrrigationSuggestion> {
                                     );
                                   }
                                   return Container();
-                                }))),
+                                },),),),
                   ],
                 );
               } else if (snapshot.hasError) {
@@ -100,7 +100,7 @@ class _IrrigationSuggestionState extends State<IrrigationSuggestion> {
                 );
               }
               return UkulimaBoraLoadingIndicator();
-            }),
+            },),
       ),
     );
   }

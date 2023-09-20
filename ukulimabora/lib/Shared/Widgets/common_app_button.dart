@@ -3,10 +3,10 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class CommonAppButton extends StatefulWidget {
   const CommonAppButton(
-      {@required this.buttonText,
-      @required this.buttonAction,
-      @required this.buttonColor,
-      @required this.textColor});
+      {required this.buttonText,
+      required this.buttonAction,
+      required this.buttonColor,
+      required this.textColor,});
 
   final String buttonText;
   final Function() buttonAction;
@@ -25,13 +25,13 @@ class _CommonAppButtonState extends State<CommonAppButton> {
       margin: UkulimaBoraCustomSpaces.normalMarginSpacing,
       width: 200,
       decoration: BoxDecoration(
-          color: widget.buttonColor, borderRadius: BorderRadius.circular(70)),
+          color: widget.buttonColor, borderRadius: BorderRadius.circular(70),),
       child: TextButton(
           onPressed: widget.buttonAction,
           child: Text(
             widget.buttonText,
             style: TextStyle(color: widget.textColor, fontSize: 18),
-          )),
+          ),),
     );
   }
 }

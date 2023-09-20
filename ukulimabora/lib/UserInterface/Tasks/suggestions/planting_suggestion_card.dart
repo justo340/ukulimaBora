@@ -3,9 +3,9 @@ import 'package:ukulimabora/Shared/Common/constants.dart';
 
 class PlantingSuggestionCard extends StatelessWidget {
   const PlantingSuggestionCard(
-      {@required this.bestWeather,
-      @required this.dayTemparature,
-      @required this.date});
+      {required this.bestWeather,
+      required this.dayTemparature,
+      required this.date,});
 
   final String bestWeather;
   final dynamic dayTemparature;
@@ -30,12 +30,12 @@ class PlantingSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                   Text(date,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
-                          color: UkulimaBoraCommonColors.appBackgroudColor)),
+                          color: UkulimaBoraCommonColors.appBackgroudColor,),),
                 ],
               ),
               UkulimaBoraDivider.normaldivider,
@@ -46,7 +46,7 @@ class PlantingSuggestionCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: UkulimaBoraCommonColors.appVeryBlackColor)),
+                          color: UkulimaBoraCommonColors.appVeryBlackColor,),),
                 ],
               ),
               const SizedBox(

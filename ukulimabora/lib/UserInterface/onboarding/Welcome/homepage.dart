@@ -14,21 +14,18 @@ class HomePage extends StatelessWidget {
               colors: <Color>[
                 UkulimaBoraCommonColors.appLightGreenColor,
                 UkulimaBoraCommonColors.appVeryBlackColor
-              ]),
+              ],),
         ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: CustomScrollView(slivers: <Widget>[
-          const HomeHeader(),
+         HomeHeader(),
           HomeBody(),
-        ]));
+        ],),);
   }
 }
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +41,7 @@ class HomeHeader extends StatelessWidget {
               color: Colors.transparent,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50))),
+                  bottomRight: Radius.circular(50),),),
           child: Text(
             UkulimaBoraCommonText.appName,
             style: TextStyle(color: UkulimaBoraCommonColors.appBackgroudColor),
@@ -56,7 +53,7 @@ class HomeHeader extends StatelessWidget {
                   image: AssetImage(
                     'assets/images/home_background.jpg',
                   ),
-                  fit: BoxFit.cover)),
+                  fit: BoxFit.cover,),),
         ),
       ),
       actions: <Widget>[
@@ -65,7 +62,7 @@ class HomeHeader extends StatelessWidget {
           child: Container(
             padding: UkulimaBoraCustomSpaces.smallMarginSpacing,
             decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(200))),
+                borderRadius: BorderRadius.all(Radius.circular(200),),),
             child: Image.asset(
               'assets/images/map.png',
               width: 30,
@@ -94,7 +91,7 @@ class HomeHeader extends StatelessWidget {
                   Icons.person,
                   size: 25,
                   color: UkulimaBoraCommonColors.appGreenColor,
-                )),
+                ),),
           ),
         ),
       ],
@@ -109,14 +106,14 @@ class HomeBody extends StatelessWidget {
         delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
       return Column(
         children: <Widget>[
-          const HomeWeatherCard(),
+           HomeWeatherCard(),
           Container(
             padding: UkulimaBoraCustomSpaces.normalMarginSpacing,
             color: Colors.transparent,
             child: Text(
               UkulimaBoraCommonText.todayQuestionText,
               style: TextStyle(
-                  fontSize: 16, color: UkulimaBoraCommonColors.appWhiteColor),
+                  fontSize: 16, color: UkulimaBoraCommonColors.appWhiteColor,),
             ),
           ),
           Container(
@@ -173,14 +170,11 @@ class HomeBody extends StatelessWidget {
           ),
         ],
       );
-    }, childCount: 1));
+    }, childCount: 1,),);
   }
 }
 
 class HomeWeatherCard extends StatelessWidget {
-  const HomeWeatherCard({
-    Key key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -210,10 +204,10 @@ class HomeWeatherCard extends StatelessWidget {
                       'Weather Forcasts',
                       style: TextStyle(
                           color: UkulimaBoraCommonColors.appBackgroudColor,
-                          fontSize: 18),
+                          fontSize: 18,),
                     )
                   ],
-                ))),
+                ),),),
       ),
     );
   }
@@ -221,9 +215,9 @@ class HomeWeatherCard extends StatelessWidget {
 
 class TaskChoiceCard extends StatelessWidget {
   const TaskChoiceCard({
-    @required this.taskName,
-    @required this.taskImage,
-    @required this.buttonAction,
+    required this.taskName,
+    required this.taskImage,
+    required this.buttonAction,
   });
 
   final String taskName;
@@ -235,7 +229,7 @@ class TaskChoiceCard extends StatelessWidget {
       onTap: buttonAction,
       child: Card(
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20))),
+              borderRadius: BorderRadius.all(Radius.circular(20),),),
           elevation: 3,
           child: InkWell(
             splashColor: UkulimaBoraCommonColors.appGreenColor.withAlpha(30),
@@ -247,7 +241,7 @@ class TaskChoiceCard extends StatelessWidget {
                     colors: <Color>[
                       Colors.green.shade500,
                       UkulimaBoraCommonColors.appVeryBlackColor
-                    ]),
+                    ],),
               ),
               height: 100,
               width: 100,
@@ -265,11 +259,11 @@ class TaskChoiceCard extends StatelessWidget {
                       taskName,
                       style: TextStyle(
                           color: UkulimaBoraCommonColors.appBackgroudColor,
-                          fontSize: 14),
+                          fontSize: 14,),
                     ),
-                  ]),
+                  ],),
             ),
-          )),
+          ),),
     );
   }
 }

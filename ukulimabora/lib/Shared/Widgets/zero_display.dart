@@ -5,9 +5,9 @@ import 'package:ukulimabora/routes/routes.dart';
 
 class ZeroDisplay extends StatelessWidget {
   const ZeroDisplay(
-      {@required this.noDataMessage,
-      @required this.noDataTitle,
-      @required this.image});
+      {required this.noDataMessage,
+      required this.noDataTitle,
+      required this.image,});
 
   final String noDataMessage;
   final String noDataTitle;
@@ -33,7 +33,7 @@ class ZeroDisplay extends StatelessWidget {
                     color: UkulimaBoraCommonColors.appBackgroudColor
                         .withOpacity(0.5),
                     fontSize: 22,
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.w500,),
               ),
             ),
             Container(
@@ -46,7 +46,7 @@ class ZeroDisplay extends StatelessWidget {
                     color: UkulimaBoraCommonColors.appBackgroudColor
                         .withOpacity(0.3),
                     fontSize: 16,
-                    fontWeight: FontWeight.w300),
+                    fontWeight: FontWeight.w300,),
               ),
             ),
             const SizedBox(

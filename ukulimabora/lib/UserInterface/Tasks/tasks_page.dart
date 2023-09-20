@@ -33,7 +33,7 @@ class CustomTaskAppBar extends StatelessWidget {
               colors: <Color>[
                 UkulimaBoraCommonColors.appGreenColor,
                 UkulimaBoraCommonColors.appVeryBlackColor
-              ]),
+              ],),
         ),
         padding: UkulimaBoraCustomSpaces.largerMarginSpacing,
         child: Column(
@@ -53,7 +53,7 @@ class CustomTaskAppBar extends StatelessWidget {
                 '50 % \nDone',
                 style: TextStyle(
                     color: UkulimaBoraCommonColors.appBackgroudColor,
-                    fontSize: 20),
+                    fontSize: 20,),
               ),
             ),
             const SizedBox(
@@ -66,12 +66,12 @@ class CustomTaskAppBar extends StatelessWidget {
                   UkulimaBoraCommonText.taskText,
                   style: TextStyle(
                       color: UkulimaBoraCommonColors.appBackgroudColor,
-                      fontSize: 25),
+                      fontSize: 25,),
                 ),
               ],
             ),
           ],
-        ));
+        ),);
   }
 }
 
@@ -129,12 +129,12 @@ class _TaskConatinerState extends State<TaskConatiner> {
 
 class TaskRow extends StatefulWidget {
   TaskRow({
-    @required this.isSelected,
-    @required this.activity,
+    required this.isSelected,
+    required this.activity,
   });
-  bool isSelected;
-  String activity;
-  int percentage;
+ late bool isSelected;
+  late String activity;
+  late int percentage;
   // double interval = 16.67;
   // int complete;
 
@@ -150,16 +150,16 @@ class _TaskRowState extends State<TaskRow> {
         Checkbox(
             checkColor: UkulimaBoraCommonColors.appGreenColor,
             value: widget.isSelected,
-            onChanged: (bool newValue) {
+            onChanged: (bool? newValue) {
               setState(() {
-                widget.isSelected = newValue;
+                widget.isSelected = newValue!;
 
                 // stderr.writeln(widget.percentage);
               });
             },
             activeColor: UkulimaBoraCommonColors.appGreenColor,
             fillColor: MaterialStateProperty.all(
-                UkulimaBoraCommonColors.appBackgroudColor)),
+                UkulimaBoraCommonColors.appBackgroudColor,),),
         const SizedBox(
           width: 20,
         ),
@@ -167,7 +167,7 @@ class _TaskRowState extends State<TaskRow> {
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
-                color: UkulimaBoraCommonColors.appBackgroudColor)),
+                color: UkulimaBoraCommonColors.appBackgroudColor,),),
       ],
     );
   }

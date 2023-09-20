@@ -56,7 +56,7 @@ class _FertilizerSuggestionState extends State<FertilizerSuggestion> {
 
                               final DateTime date =
                                   DateTime.fromMillisecondsSinceEpoch(
-                                      timeStamp * 1000);
+                                      timeStamp * 1000,);
 
                               final String formatedDate =
                                   DateFormat('EEEE MMM-dd').format(date);
@@ -80,10 +80,10 @@ class _FertilizerSuggestionState extends State<FertilizerSuggestion> {
                                 return FertilizerSuggestionCard(
                                     date: formatedDate,
                                     windSpeed: windSpeed,
-                                    bestWeather: bestWeather);
+                                    bestWeather: bestWeather,);
                               }
                               return Container();
-                            }),
+                            },),
                       ),
                     )
                   ],
@@ -96,7 +96,7 @@ class _FertilizerSuggestionState extends State<FertilizerSuggestion> {
                 );
               }
               return UkulimaBoraLoadingIndicator();
-            }),
+            },),
       ),
     );
   }
